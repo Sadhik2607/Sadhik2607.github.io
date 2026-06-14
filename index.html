@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Sadhik Ahamed | DevOps & Cloud Engineer</title>
+<title>Sadhik Ahamed | Software Developer & DevOps Engineer</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet"/>
 <style>
@@ -181,6 +181,20 @@ footer span{color:var(--blue)}
 .reveal{opacity:0;transform:translateY(30px);transition:.7s cubic-bezier(.4,0,.2,1)}
 .reveal.visible{opacity:1;transform:translateY(0)}
 
+/* ── Avatar ── */
+#avatar-wrap{position:fixed;bottom:2rem;right:2rem;z-index:200;display:flex;flex-direction:column;align-items:center;gap:.5rem;pointer-events:none}
+#avatar-bubble{background:rgba(15,23,42,.95);border:1px solid rgba(56,189,248,.4);border-radius:16px 16px 4px 16px;padding:.6rem 1rem;font-size:.8rem;color:var(--text);max-width:180px;text-align:center;line-height:1.4;opacity:0;transform:translateY(8px) scale(.95);transition:.4s cubic-bezier(.34,1.56,.64,1);box-shadow:0 8px 24px rgba(0,0,0,.4)}
+#avatar-bubble.show{opacity:1;transform:translateY(0) scale(1)}
+#avatar-face{width:70px;height:70px;position:relative;cursor:pointer;pointer-events:all}
+.av-body{width:70px;height:70px;border-radius:50%;background:linear-gradient(135deg,#1e293b,#0f172a);border:2px solid rgba(56,189,248,.4);display:flex;align-items:center;justify-content:center;font-size:2.2rem;transition:.3s;box-shadow:0 0 20px rgba(56,189,248,.15)}
+#avatar-face:hover .av-body{box-shadow:0 0 30px rgba(56,189,248,.4);transform:scale(1.08)}
+.av-eyes{position:absolute;top:28%;left:50%;transform:translateX(-50%);display:flex;gap:10px}
+.av-eye{width:8px;height:8px;background:#38bdf8;border-radius:50%;transition:.3s;box-shadow:0 0 6px #38bdf8}
+.av-eye.wide{height:12px;width:6px;border-radius:3px}
+.av-eye.closed{height:2px;border-radius:2px}
+.av-mouth{position:absolute;bottom:28%;left:50%;transform:translateX(-50%);width:16px;height:8px;border-bottom:2px solid #38bdf8;border-radius:0 0 8px 8px;transition:.3s}
+.av-mouth.smile{width:20px;height:10px}
+.av-mouth.wow{width:10px;height:10px;border-radius:50%;border:2px solid #38bdf8;border-top:none}
 /* ── Responsive ── */
 @media(max-width:900px){
   .hero-stats{display:none}
@@ -201,6 +215,18 @@ footer span{color:var(--blue)}
 <div class="blob blob2"></div>
 <div class="blob blob3"></div>
 
+<!-- AVATAR -->
+<div id="avatar-wrap">
+  <div id="avatar-bubble"></div>
+  <div id="avatar-face" onclick="avatarClick()">
+    <div class="av-body">&#128104;&#8205;&#128187;</div>
+    <div class="av-eyes">
+      <div class="av-eye" id="eye-l"></div>
+      <div class="av-eye" id="eye-r"></div>
+    </div>
+    <div class="av-mouth" id="av-mouth"></div>
+  </div>
+</div>
 <!-- NAV -->
 <nav>
   <div class="logo">SA.</div>
@@ -211,7 +237,7 @@ footer span{color:var(--blue)}
     <a href="#projects">Projects</a>
     <a href="#contact">Contact</a>
   </div>
-  <a href="mailto:epictechtales@gmail.com"><button class="nav-cta">Hire Me</button></a>
+  <a href="mailto:sadhik021@gmail.com"><button class="nav-cta">Hire Me</button></a>
 </nav>
 
 <!-- HERO -->
@@ -219,7 +245,7 @@ footer span{color:var(--blue)}
   <div class="hero-content">
     <div class="hero-badge">
       <span class="dot"></span>
-      Open to DevOps &amp; BSA opportunities
+      Open to full-time DevOps, Cloud &amp; Data roles
     </div>
     <h1 class="hero-name">
       <span class="gradient-text">Sadhik Ahamed</span><br/>
@@ -229,9 +255,10 @@ footer span{color:var(--blue)}
       <span id="typed"></span><span class="cursor">|</span>
     </div>
     <p class="hero-desc">
-      DevOps Engineer &amp; Business Systems Analyst with hands-on experience in Azure DevOps,
-      Kubernetes, Terraform, CI/CD pipelines, and data analytics. Building production-grade
-      cloud infrastructure and automation systems that actually ship.
+      Software Developer &amp; Data Analyst with 2+ years across 4 co-op placements at
+      BC Pension Corporation, UVic, Providence, and Amazon. I build CI/CD pipelines,
+      Power Platform solutions, data dashboards, and cloud-hosted apps on Azure.
+      CS grad from UVic (2026).
     </p>
     <div class="hero-btns">
       <a href="#projects"><button class="btn-primary">&#9654; View Projects</button></a>
@@ -244,15 +271,15 @@ footer span{color:var(--blue)}
       <a href="https://www.linkedin.com/in/sadhik-ahamed-sm2607/" target="_blank" class="social-icon" title="LinkedIn">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
       </a>
-      <a href="mailto:epictechtales@gmail.com" class="social-icon" title="Email">
+      <a href="mailto:sadhik021@gmail.com" class="social-icon" title="Email">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
       </a>
     </div>
   </div>
   <div class="hero-stats">
     <div class="stat-card reveal">
-      <div class="stat-num">2+</div>
-      <div class="stat-label">Years Experience</div>
+      <div class="stat-num">4</div>
+      <div class="stat-label">Co-op Placements</div>
     </div>
     <div class="stat-card reveal">
       <div class="stat-num" id="proj-count">1</div>
@@ -276,19 +303,19 @@ footer span{color:var(--blue)}
     </div>
     <div class="about-text reveal">
       <span class="section-tag">About Me</span>
-      <h2 class="section-title">Building Systems That Scale, Ship, and Secure.</h2>
-      <p>I'm a DevOps Engineer and Business Systems Analyst based in British Columbia, Canada. I spent 2+ years at <strong style="color:var(--blue)">BC Pension Corporation</strong> building automation systems, streamlining SDLC processes, and delivering stakeholder-facing analytics dashboards.</p>
-      <p>My sweet spot is the intersection of engineering and analysis — I can architect a Kubernetes pipeline and then explain it to a business stakeholder in the same meeting. I target roles in DevOps, DevSecOps, Cloud Engineering, BSA, and Data Analytics.</p>
-      <p>Every day I push a new open-source tool to GitHub — practical, production-quality code targeting real job requirements.</p>
+      <h2 class="section-title">Building CI/CD, Cloud Apps, and Data Systems That Ship.</h2>
+      <p>I'm a Software Developer &amp; Data Analyst based in Victoria, BC, completing a CS degree at the <strong style="color:var(--blue)">University of Victoria</strong> (graduating 2026) with 4 industry co-op placements across DevOps, cloud, and data analytics.</p>
+      <p>At <strong style="color:var(--blue)">BC Pension Corporation</strong> I built a GitHub App (Probot + Node.js + GraphQL) deployed on Azure App Service via Docker, a full release approval platform in PowerApps/Power Automate, CI/CD workflows across 115+ repositories, and Power BI dashboards tracking DORA metrics for 3 engineering teams.</p>
+      <p>Open to full-time roles in DevOps, cloud engineering, or data analytics in Vancouver, Toronto, Calgary, or remote. Every day I push a new open-source tool to GitHub targeting real job requirements.</p>
       <div class="about-tags">
+        <span class="tag">GitHub Actions</span>
         <span class="tag">Azure DevOps</span>
-        <span class="tag">Kubernetes</span>
-        <span class="tag">Terraform</span>
+        <span class="tag">Docker</span>
+        <span class="tag">Power BI</span>
         <span class="tag">Python</span>
         <span class="tag">SQL</span>
-        <span class="tag">Power BI</span>
-        <span class="tag">GitHub Actions</span>
-        <span class="tag">Docker</span>
+        <span class="tag">Power Platform</span>
+        <span class="tag">Node.js</span>
       </div>
     </div>
   </div>
@@ -437,31 +464,123 @@ footer span{color:var(--blue)}
     <div class="divider"></div>
   </div>
   <div class="timeline">
+
     <div class="timeline-item reveal">
       <div class="timeline-dot"></div>
-      <div class="timeline-date">2022 — Present</div>
-      <div class="timeline-role">Business Systems Analyst &amp; DevOps Contributor</div>
-      <div class="timeline-company">BC Pension Corporation · Victoria, BC</div>
+      <div class="timeline-date">Sep 2025 — Apr 2026 · 8 months</div>
+      <div class="timeline-role">DevOps Developer</div>
+      <div class="timeline-company">BC Pension Corporation · Co-op · Victoria, BC (Hybrid)</div>
       <div class="timeline-desc">
-        Delivered multiple high-impact automation and analytics projects across the SDLC and DevOps pipeline, reducing manual effort and improving team visibility into delivery metrics.
+        Built release management tooling, CI/CD automation, and analytics dashboards supporting software delivery across 115+ repositories in an enterprise environment.
         <br/><br/>
-        <strong style="color:var(--text)">Project Linker</strong> — Built an automation system linking Azure DevOps work items across projects, eliminating manual cross-team tracking and reducing link management time by ~70%.
-        <br/><br/>
-        <strong style="color:var(--text)">Tag Backfill</strong> — Automated retrospective tagging of historical work items in Azure DevOps, enabling accurate reporting on 2+ years of delivery data that was previously uncategorized.
-        <br/><br/>
-        <strong style="color:var(--text)">SDLC Metrics Dashboard</strong> — Designed and built Power BI dashboards tracking SDLC KPIs (lead time, cycle time, deployment frequency), giving leadership real-time delivery visibility.
+        - Built a <strong style="color:var(--text)">GitHub App</strong> (Probot + Node.js + GraphQL) that auto-links issues to GitHub Projects v2, deployed via Docker to Azure App Service
+        <br/>
+        - Built end-to-end <strong style="color:var(--text)">release approval platform</strong> using PowerApps, Power Automate, REST APIs, SQL Server, and GitHub Actions
+        <br/>
+        - Developed CI/CD workflows processing <strong style="color:var(--text)">200+ webhook events per week</strong> across 115+ repos
+        <br/>
+        - Built <strong style="color:var(--text)">Power BI dashboards</strong> with DAX tracking deployment frequency, defect rate, and lead time for 3 engineering teams
+        <br/>
+        - Tag backfill utility scanning repos, validating approvals, and outputting full audit CSVs
+        <br/>
+        - Database migration from NODE_ID to DATABASE_ID — updated foreign keys, stored procedures, and ETL pipelines
       </div>
       <div class="timeline-tags">
-        <span class="tl-tag">Azure DevOps</span>
-        <span class="tl-tag">Python</span>
+        <span class="tl-tag">GitHub Actions</span>
+        <span class="tl-tag">Node.js</span>
+        <span class="tl-tag">Docker</span>
+        <span class="tl-tag">GraphQL</span>
+        <span class="tl-tag">PowerApps</span>
+        <span class="tl-tag">Power Automate</span>
         <span class="tl-tag">Power BI</span>
-        <span class="tl-tag">SQL</span>
-        <span class="tl-tag">Power Apps</span>
-        <span class="tl-tag">Agile</span>
+        <span class="tl-tag">SQL Server</span>
+        <span class="tl-tag">Azure App Service</span>
         <span class="tl-tag">REST APIs</span>
-        <span class="tl-tag">SDLC</span>
+        <span class="tl-tag">Python</span>
       </div>
     </div>
+
+    <div class="timeline-item reveal">
+      <div class="timeline-dot"></div>
+      <div class="timeline-date">May 2025 — Aug 2025 · 4 months</div>
+      <div class="timeline-role">Intranet Systems Developer</div>
+      <div class="timeline-company">University of Victoria · Co-op · Victoria, BC (Hybrid)</div>
+      <div class="timeline-desc">
+        Delivered an intranet platform and operational reporting system serving 5+ departments and 50+ daily users.
+        <br/><br/>
+        - Conducted <strong style="color:var(--text)">30+ stakeholder interviews</strong> to translate business needs into Microsoft 365 solutions and dashboards
+        <br/>
+        - Designed a <strong style="color:var(--text)">17-phase Capital Development roadmap</strong> with process flows and structured documentation
+        <br/>
+        - Coordinated SIT, UAT, user training, and rollout — achieving <strong style="color:var(--text)">90% adoption after launch</strong>
+      </div>
+      <div class="timeline-tags">
+        <span class="tl-tag">Microsoft 365</span>
+        <span class="tl-tag">SharePoint</span>
+        <span class="tl-tag">Power Automate</span>
+        <span class="tl-tag">Power BI</span>
+        <span class="tl-tag">Stakeholder Management</span>
+        <span class="tl-tag">UAT</span>
+        <span class="tl-tag">Project Management</span>
+      </div>
+    </div>
+
+    <div class="timeline-item reveal">
+      <div class="timeline-dot"></div>
+      <div class="timeline-date">May 2024 — Apr 2025 · 1 year</div>
+      <div class="timeline-role">Software Developer Engineer</div>
+      <div class="timeline-company">Providence · Co-op · Hyderabad, India (Hybrid)</div>
+      <div class="timeline-desc">
+        Supported Azure-hosted applications and built data analytics tooling across distributed cloud environments.
+        <br/><br/>
+        - Supported Azure applications handling <strong style="color:var(--text)">10,000+ daily API requests</strong> across REST services and cloud resources
+        <br/>
+        - Built and maintained CI/CD pipelines for <strong style="color:var(--text)">12 services</strong>, cutting release cycle time from 45 minutes to under 10
+        <br/>
+        - Created Power BI dashboards identifying trends, anomalies, and performance patterns
+        <br/>
+        - Automated operational tasks with Python and Bash, eliminating <strong style="color:var(--text)">6 hours per week</strong> of manual work
+      </div>
+      <div class="timeline-tags">
+        <span class="tl-tag">Azure</span>
+        <span class="tl-tag">CI/CD</span>
+        <span class="tl-tag">Python</span>
+        <span class="tl-tag">Bash</span>
+        <span class="tl-tag">Power BI</span>
+        <span class="tl-tag">REST APIs</span>
+        <span class="tl-tag">DevOps</span>
+      </div>
+    </div>
+
+    <div class="timeline-item reveal">
+      <div class="timeline-dot"></div>
+      <div class="timeline-date">May 2019 — Aug 2019 · 4 months</div>
+      <div class="timeline-role">Software Design Engineer in Test</div>
+      <div class="timeline-company">Amazon · Co-op · On-site</div>
+      <div class="timeline-desc">
+        - Developed and maintained automated test scripts using <strong style="color:var(--text)">Selenium</strong> to validate web application functionality across multiple user flows
+        <br/>
+        - Executed functional, regression, and UI test cases to identify defects and ensure release quality
+        <br/>
+        - Improved test coverage and reduced manual testing effort through automation
+      </div>
+      <div class="timeline-tags">
+        <span class="tl-tag">Selenium</span>
+        <span class="tl-tag">Python</span>
+        <span class="tl-tag">Test Automation</span>
+        <span class="tl-tag">QA</span>
+        <span class="tl-tag">Regression Testing</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Education -->
+  <div style="margin-top:4rem" class="reveal">
+    <span class="section-tag">Education</span>
+    <h2 class="section-title" style="font-size:1.8rem">University of Victoria</h2>
+    <p style="color:var(--purple);font-weight:600;margin-bottom:.5rem">Bachelor's Degree (Integrated) · Computer Science · 2026</p>
+    <p style="color:var(--muted);font-size:.9rem">Co-operative Education Program · 4 industry placements in DevOps, data analytics, and Microsoft cloud development</p>
   </div>
 </section>
 
@@ -571,9 +690,9 @@ footer span{color:var(--blue)}
   </div>
   <div class="certs-grid">
     <div class="cert-card reveal">
-      <div class="cert-icon">&#129504;</div>
-      <div class="cert-name">Azure AI Fundamentals</div>
-      <div class="cert-body">Microsoft · AI-900</div>
+      <div class="cert-icon">&#128013;</div>
+      <div class="cert-name">MTA: Python Programming</div>
+      <div class="cert-body">Microsoft · Issued Jul 2020</div>
       <span class="cert-status status-earned">Earned</span>
     </div>
     <div class="cert-card reveal">
@@ -615,13 +734,13 @@ footer span{color:var(--blue)}
     <div class="contact-info reveal">
       <span class="section-tag">Get In Touch</span>
       <h2 class="section-title">Let's Work Together</h2>
-      <p>I'm actively looking for DevOps Engineer, Cloud Engineer, BSA, BI Analyst, and Data Analyst roles. If you're hiring or want to collaborate on a project, let's talk.</p>
+      <p>CS grad from UVic (2026), actively looking for full-time DevOps, Cloud Engineering, and Data Analytics roles in Vancouver, Toronto, Calgary, or remote. If you're hiring or want to collaborate, let's talk.</p>
       <div class="contact-links">
-        <a href="mailto:epictechtales@gmail.com" class="contact-link">
+        <a href="mailto:sadhik021@gmail.com" class="contact-link">
           <div class="contact-link-icon" style="background:rgba(56,189,248,.1)">&#128140;</div>
           <div class="contact-link-text">
             <span>Email</span>
-            <span>epictechtales@gmail.com</span>
+            <span>sadhik021@gmail.com</span>
           </div>
         </a>
         <a href="https://www.linkedin.com/in/sadhik-ahamed-sm2607/" target="_blank" class="contact-link">
@@ -729,7 +848,7 @@ function animate() {
 animate();
 
 // ── Typing animation ──
-const roles = ['DevOps Engineer','Cloud Engineer','BSA · Business Systems Analyst','DevSecOps Specialist','BI Analyst · Data Analytics','Terraform & Kubernetes','CI/CD Pipeline Builder'];
+const roles = ['Software Developer','DevOps Engineer','Data Analyst','Cloud Engineer','CI/CD & Release Automation','Power Platform Developer','GitHub Actions & Docker','Open to Work · CS @ UVic 2026'];
 let ri = 0, ci = 0, deleting = false;
 const el = document.getElementById('typed');
 
@@ -764,6 +883,87 @@ function handleForm(e) {
     e.target.reset();
   }, 3000);
 }
+
+// ── Avatar logic ──
+const bubble = document.getElementById('avatar-bubble');
+const eyeL = document.getElementById('eye-l');
+const eyeR = document.getElementById('eye-r');
+const mouth = document.getElementById('av-mouth');
+let bubbleTimer;
+
+const sectionMessages = {
+  hero:       { msg: "Hey there! 👋 Welcome to my portfolio!", mood: 'smile' },
+  about:      { msg: "That's me! CS at UVic + 4 co-ops 🎓", mood: 'smile' },
+  skills:     { msg: "I know a few things... 😏", mood: 'smile' },
+  experience: { msg: "Great choice! This is the good stuff 💼", mood: 'excited' },
+  projects:   { msg: "I push new code every single day! 🚀", mood: 'excited' },
+  certs:      { msg: "More certs on the way! 📜", mood: 'smile' },
+  contact:    { msg: "Ooh, are you about to hire me? 🤞", mood: 'wow' },
+};
+
+const clickMessages = [
+  "Nice click! 😄",
+  "Stop poking me! 😅",
+  "OK OK, I see you 👀",
+  "Really? Again? 🙄",
+  "Hire me and I'll stop 😂",
+  "Psst — check my GitHub! 💻",
+];
+let clickCount = 0;
+
+function showBubble(text, mood) {
+  bubble.textContent = text;
+  bubble.classList.add('show');
+  setMood(mood || 'smile');
+  clearTimeout(bubbleTimer);
+  bubbleTimer = setTimeout(() => bubble.classList.remove('show'), 3500);
+}
+
+function setMood(mood) {
+  eyeL.className = 'av-eye';
+  eyeR.className = 'av-eye';
+  mouth.className = 'av-mouth';
+  if (mood === 'excited') {
+    eyeL.classList.add('wide');
+    eyeR.classList.add('wide');
+    mouth.classList.add('smile');
+  } else if (mood === 'wow') {
+    eyeL.classList.add('wide');
+    eyeR.classList.add('wide');
+    mouth.classList.add('wow');
+  } else if (mood === 'blink') {
+    eyeL.classList.add('closed');
+    eyeR.classList.add('closed');
+    setTimeout(() => { eyeL.className='av-eye'; eyeR.className='av-eye'; }, 200);
+  } else {
+    mouth.classList.add('smile');
+  }
+}
+
+function avatarClick() {
+  const msg = clickMessages[clickCount % clickMessages.length];
+  clickCount++;
+  showBubble(msg, clickCount % 3 === 0 ? 'wow' : 'smile');
+}
+
+// Blink randomly
+setInterval(() => setMood('blink'), 4000 + Math.random() * 3000);
+
+// Greet on load
+setTimeout(() => showBubble("Hey there! 👋 Welcome!", 'smile'), 1500);
+
+// Section-aware comments
+const sectionObserver = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      const id = e.target.id;
+      if (sectionMessages[id]) {
+        setTimeout(() => showBubble(sectionMessages[id].msg, sectionMessages[id].mood), 400);
+      }
+    }
+  });
+}, { threshold: 0.4 });
+document.querySelectorAll('section[id]').forEach(s => sectionObserver.observe(s));
 
 // ── Active nav highlight ──
 const sections = document.querySelectorAll('section[id]');
