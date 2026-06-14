@@ -53,18 +53,18 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 5%;display:flex;al
 .nav-cta:hover{opacity:.85;transform:translateY(-1px)}
 
 /* ── Hero ── */
-#hero{position:relative;min-height:100vh;display:grid;grid-template-columns:1fr 360px;align-items:center;gap:3rem;padding:0 5%;z-index:1}
-.hero-content{max-width:600px}
+#hero{position:relative;min-height:100vh;display:flex;align-items:center;padding:0 5%;z-index:1}
+.hero-content{max-width:800px}
 .hero-badge{display:inline-flex;align-items:center;gap:.5rem;background:rgba(56,189,248,.1);border:1px solid rgba(56,189,248,.3);border-radius:100px;padding:.35rem 1rem;font-size:.8rem;color:var(--blue);font-weight:500;margin-bottom:1.5rem}
 .hero-badge .dot{width:6px;height:6px;background:var(--green);border-radius:50%;animation:pulse 2s infinite}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
-h1.hero-name{font-family:'Space Grotesk',sans-serif;font-size:clamp(2.4rem,5vw,4.2rem);font-weight:800;line-height:1.1;margin-bottom:.5rem}
+h1.hero-name{font-family:'Space Grotesk',sans-serif;font-size:clamp(2.8rem,6vw,5rem);font-weight:800;line-height:1.1;margin-bottom:.5rem}
 .gradient-text{background:linear-gradient(135deg,var(--blue) 0%,var(--purple) 50%,var(--pink) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.hero-roles{font-size:clamp(1rem,2vw,1.4rem);color:var(--muted);font-weight:400;margin-bottom:1.5rem;min-height:2rem}
+.hero-roles{font-size:clamp(1.1rem,2.5vw,1.5rem);color:var(--muted);font-weight:400;margin-bottom:1.5rem;min-height:2rem}
 #typed{color:var(--blue);font-weight:600}
 .cursor{animation:blink .7s infinite}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
-.hero-desc{font-size:1rem;color:var(--muted);line-height:1.8;max-width:520px;margin-bottom:2.5rem}
+.hero-desc{font-size:1.05rem;color:var(--muted);line-height:1.8;max-width:580px;margin-bottom:2.5rem}
 .hero-btns{display:flex;gap:1rem;flex-wrap:wrap}
 .btn-primary{background:linear-gradient(135deg,var(--blue2),var(--purple));color:#fff;padding:.8rem 2rem;border-radius:10px;font-weight:600;font-size:.95rem;border:none;cursor:pointer;transition:.3s;display:inline-flex;align-items:center;gap:.5rem}
 .btn-primary:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(14,165,233,.3)}
@@ -73,106 +73,108 @@ h1.hero-name{font-family:'Space Grotesk',sans-serif;font-size:clamp(2.4rem,5vw,4
 .hero-socials{display:flex;gap:1rem;margin-top:2rem}
 .social-icon{width:42px;height:42px;border-radius:10px;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;transition:.3s;color:var(--muted)}
 .social-icon:hover{border-color:var(--blue);color:var(--blue);transform:translateY(-3px);background:rgba(56,189,248,.08)}
-.hero-right{display:flex;flex-direction:column;align-items:center;gap:1.5rem}
-.hero-stats{display:flex;flex-direction:row;gap:.8rem;width:100%;justify-content:center;flex-wrap:wrap}
-.stat-card{background:rgba(15,23,42,.8);border:1px solid var(--border);border-radius:16px;padding:1rem 1.2rem;backdrop-filter:blur(20px);text-align:center;min-width:100px;flex:1}
-.stat-num{font-family:'Space Grotesk',sans-serif;font-size:1.8rem;font-weight:700;background:linear-gradient(135deg,var(--blue),var(--purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-.stat-label{font-size:.72rem;color:var(--muted);margin-top:.2rem}
+.hero-stats{position:absolute;right:5%;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:1.5rem}
+.stat-card{background:rgba(15,23,42,.8);border:1px solid var(--border);border-radius:16px;padding:1.2rem 1.5rem;backdrop-filter:blur(20px);text-align:center;min-width:130px}
+.stat-num{font-family:'Space Grotesk',sans-serif;font-size:2rem;font-weight:700;background:linear-gradient(135deg,var(--blue),var(--purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.stat-label{font-size:.75rem;color:var(--muted);margin-top:.25rem}
 
-/* ── Big Sphere Character ── */
-.sphere-wrap{position:relative;display:flex;flex-direction:column;align-items:center;user-select:none}
-.sphere-char{
-  width:300px;height:300px;border-radius:50%;
-  position:relative;
-  background:radial-gradient(circle at 35% 30%,#1a3352 0%,#08101e 55%,#020608 100%);
-  border:2px solid rgba(56,189,248,.22);
-  box-shadow:0 0 70px rgba(56,189,248,.22),0 0 150px rgba(56,189,248,.07),inset 0 0 80px rgba(0,0,0,.55);
-  animation:sphere-bob 4s ease-in-out infinite;
-  cursor:pointer;transition:box-shadow .4s,transform .2s;
+/* ── Buddy Character (fixed page companion) ── */
+#buddy-wrap{position:fixed;right:1.4rem;bottom:1.8rem;z-index:200;display:flex;flex-direction:column;align-items:center;gap:.4rem;pointer-events:none}
+#buddy-bubble{
+  background:rgba(10,18,32,.97);border:1px solid rgba(56,189,248,.45);
+  border-radius:14px 14px 4px 14px;
+  padding:.55rem 1rem;font-size:.82rem;color:var(--text);
+  max-width:210px;text-align:center;line-height:1.5;
+  opacity:0;transform:translateY(10px) scale(.9);
+  transition:.38s cubic-bezier(.34,1.56,.64,1);
+  box-shadow:0 8px 30px rgba(0,0,0,.55);pointer-events:none;
 }
-.sphere-char:hover{box-shadow:0 0 100px rgba(56,189,248,.38),0 0 200px rgba(56,189,248,.1),inset 0 0 80px rgba(0,0,0,.55)}
-@keyframes sphere-bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-18px)}}
-.sphere-highlight{
-  position:absolute;top:11%;left:16%;
-  width:40%;height:33%;
-  background:radial-gradient(ellipse at 45% 45%,rgba(56,189,248,.45) 0%,rgba(56,189,248,.1) 55%,transparent 80%);
+#buddy-bubble.show{opacity:1;transform:translateY(0) scale(1)}
+#buddy{
+  width:110px;height:130px;
+  position:relative;cursor:pointer;pointer-events:all;
+  animation:buddy-bob 3.5s ease-in-out infinite;
+  filter:drop-shadow(0 0 14px rgba(56,189,248,.22));
+  transition:filter .3s;
+}
+#buddy:hover{filter:drop-shadow(0 0 22px rgba(56,189,248,.45))}
+@keyframes buddy-bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
+#buddy.scrolling{animation:buddy-wiggle .45s ease-in-out infinite}
+@keyframes buddy-wiggle{0%,100%{transform:translateY(0) rotate(-5deg)}50%{transform:translateY(-8px) rotate(5deg)}}
+
+/* body blob */
+.buddy-body{
+  width:110px;height:122px;
+  background:radial-gradient(ellipse at 37% 30%,#1f3f60 0%,#0b1d30 55%,#040c14 100%);
+  border-radius:50% 50% 42% 42% / 58% 58% 42% 42%;
+  border:2px solid rgba(56,189,248,.28);
+  position:relative;overflow:visible;
+  transition:transform .15s;
+}
+#buddy:hover .buddy-body{transform:scale(1.04)}
+.buddy-sheen{
+  position:absolute;top:9%;left:15%;width:36%;height:28%;
+  background:radial-gradient(ellipse,rgba(56,189,248,.42) 0%,transparent 75%);
   border-radius:50%;transform:rotate(-22deg);pointer-events:none;
 }
-.sphere-highlight2{
-  position:absolute;bottom:20%;right:15%;
-  width:20%;height:16%;
-  background:radial-gradient(ellipse,rgba(167,139,250,.25) 0%,transparent 70%);
-  border-radius:50%;pointer-events:none;
+/* nub arms */
+.buddy-arm{
+  position:absolute;width:22px;height:46px;
+  background:linear-gradient(180deg,#1f3f60,#0b1d30);
+  border:2px solid rgba(56,189,248,.2);border-radius:50%;
+  top:52%;transition:transform .3s cubic-bezier(.34,1.56,.64,1);
 }
-.sphere-face{
-  position:absolute;top:0;left:0;right:0;bottom:0;
-  display:flex;flex-direction:column;justify-content:center;align-items:center;gap:0;
+.buddy-arm-l{left:-13px;transform:rotate(18deg);transform-origin:top center}
+.buddy-arm-r{right:-13px;transform:rotate(-18deg);transform-origin:top center}
+#buddy:hover .buddy-arm-l{transform:rotate(45deg) translateY(-5px)}
+#buddy:hover .buddy-arm-r{transform:rotate(-45deg) translateY(-5px)}
+
+/* face */
+.buddy-face{
+  position:absolute;top:0;left:0;right:0;bottom:18px;
+  display:flex;flex-direction:column;justify-content:center;align-items:center;
 }
-.sphere-eyes-row{display:flex;gap:28px;margin-bottom:12px}
-.s-eye{
-  width:54px;height:54px;border-radius:50%;
-  background:#ecf5fe;
-  position:relative;
-  box-shadow:0 0 10px rgba(255,255,255,.45),inset 0 2px 5px rgba(0,0,0,.08);
-  overflow:hidden;
-  transition:height .25s,border-radius .25s,margin-top .25s,width .25s;
+.buddy-eyes-row{display:flex;gap:18px;margin-bottom:10px}
+.b-eye{
+  width:30px;height:30px;border-radius:50%;
+  background:#e8f5fd;position:relative;overflow:hidden;
+  box-shadow:0 0 7px rgba(255,255,255,.4);
+  transition:height .2s,border-radius .2s,margin-top .2s,width .2s;
 }
-.s-eye.wink{height:5px!important;border-radius:4px!important;overflow:hidden;margin-top:26px}
-.s-eye.wide{transform:scale(1.18)}
-.s-eye.squint{height:22px;border-radius:50px;overflow:hidden}
-.s-eye.closed{height:5px!important;border-radius:4px!important;overflow:hidden;margin-top:26px}
-.s-pupil{
-  position:absolute;
-  width:26px;height:26px;border-radius:50%;
-  background:#05101f;
-  top:50%;left:50%;
-  transform:translate(-50%,-50%);
-  transition:transform .07s ease-out,width .2s,height .2s;
-  will-change:transform;
+.b-eye.blink{height:3px!important;border-radius:3px!important;margin-top:14px}
+.b-eye.wide{transform:scale(1.22)}
+.b-eye.squint{height:13px!important;border-radius:20px!important;margin-top:9px}
+.b-pupil{
+  position:absolute;width:15px;height:15px;border-radius:50%;
+  background:#040e1c;
+  top:50%;left:50%;transform:translate(-50%,-50%);
+  transition:transform .07s ease-out;will-change:transform;
 }
-.s-pupil.dilate{width:34px;height:34px}
-.s-shine{position:absolute;width:9px;height:9px;border-radius:50%;background:rgba(56,189,248,.9);top:16%;left:18%}
-.s-shine2{position:absolute;width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,.7);bottom:22%;right:16%}
-.s-nose{width:7px;height:7px;border-radius:50%;background:rgba(56,189,248,.35);margin:6px 0 14px}
-.s-mouth{
-  width:60px;height:0;
-  border-bottom:3px solid rgba(56,189,248,.75);
-  border-radius:0 0 30px 30px;
-  transition:all .4s cubic-bezier(.34,1.56,.64,1);
-  position:relative;
+.b-shine{position:absolute;width:6px;height:6px;border-radius:50%;background:rgba(56,189,248,.95);top:17%;left:18%}
+.b-shine2{position:absolute;width:3px;height:3px;border-radius:50%;background:rgba(255,255,255,.7);bottom:22%;right:16%}
+.b-mouth{
+  width:30px;height:14px;
+  border-bottom:2.5px solid rgba(56,189,248,.82);
+  border-radius:0 0 14px 14px;
+  transition:all .38s cubic-bezier(.34,1.56,.64,1);
 }
-/* expression mods applied via class on .sphere-char */
-.sphere-char.mood-smile .s-mouth{width:60px;height:28px}
-.sphere-char.mood-grin .s-mouth{width:80px;height:40px;border-bottom-width:3px}
-.sphere-char.mood-wow .s-mouth{width:32px;height:32px;border-radius:50%;border:3px solid rgba(56,189,248,.75);border-top-color:transparent}
-.sphere-char.mood-smirk .s-mouth{width:38px;height:16px;border-radius:0 0 20px 6px;margin-left:18px}
-.sphere-char.mood-straight .s-mouth{width:44px;height:0;border-radius:0;border-bottom-width:3px}
-.sphere-char.mood-smile .s-eye.wide{transform:scale(1)} /* reset */
-.sphere-char.mood-grin .s-eye{transform:scale(1.12)}
-.sphere-char.mood-wow .s-eye{transform:scale(1.25)}
-.sphere-shadow{
-  width:190px;height:18px;
-  background:radial-gradient(ellipse,rgba(56,189,248,.18) 0%,transparent 70%);
-  border-radius:50%;margin-top:-6px;
-  animation:shadow-bob 4s ease-in-out infinite;
+/* mood variants */
+#buddy.mood-smile .b-mouth{width:30px;height:14px}
+#buddy.mood-grin .b-mouth{width:42px;height:20px}
+#buddy.mood-wow .b-mouth{width:18px;height:18px;border-radius:50%;border:2.5px solid rgba(56,189,248,.82);border-top-color:transparent}
+#buddy.mood-smirk .b-mouth{width:24px;height:9px;border-radius:0 0 12px 3px;margin-left:10px}
+#buddy.mood-flat .b-mouth{height:0;border-radius:0;width:24px}
+#buddy.mood-grin .b-eye{transform:scale(1.1)}
+#buddy.mood-wow .b-eye{transform:scale(1.18)}
+
+/* ground shadow */
+.buddy-shadow{
+  width:75px;height:9px;
+  background:radial-gradient(ellipse,rgba(56,189,248,.14) 0%,transparent 70%);
+  border-radius:50%;
+  animation:buddy-shadow 3.5s ease-in-out infinite;
 }
-@keyframes shadow-bob{0%,100%{transform:scaleX(1);opacity:.8}50%{transform:scaleX(.75);opacity:.35}}
-.sphere-label{
-  font-size:.75rem;color:var(--blue);letter-spacing:2px;text-transform:uppercase;
-  font-family:'Fira Code',monospace;opacity:.7;margin-top:.4rem;
-}
-/* speech bubble on sphere */
-.sphere-bubble{
-  position:absolute;top:-70px;left:50%;transform:translateX(-50%) scale(.9);
-  background:rgba(15,23,42,.95);border:1px solid rgba(56,189,248,.4);
-  border-radius:16px 16px 16px 4px;
-  padding:.6rem 1rem;font-size:.82rem;color:var(--text);
-  white-space:nowrap;opacity:0;
-  transition:.35s cubic-bezier(.34,1.56,.64,1);
-  pointer-events:none;
-  box-shadow:0 8px 24px rgba(0,0,0,.5);
-}
-.sphere-bubble.show{opacity:1;transform:translateX(-50%) scale(1)}
+@keyframes buddy-shadow{0%,100%{transform:scaleX(1);opacity:.7}50%{transform:scaleX(.68);opacity:.28}}
 
 /* ── Section ── */
 section{position:relative;z-index:1;padding:6rem 5%}
@@ -277,42 +279,23 @@ footer span{color:var(--blue)}
 .reveal{opacity:0;transform:translateY(30px);transition:.7s cubic-bezier(.4,0,.2,1)}
 .reveal.visible{opacity:1;transform:translateY(0)}
 
-/* ── Avatar ── */
-#avatar-wrap{position:fixed;bottom:2rem;right:2rem;z-index:200;display:flex;flex-direction:column;align-items:center;gap:.5rem;pointer-events:none}
-#avatar-bubble{background:rgba(15,23,42,.95);border:1px solid rgba(56,189,248,.4);border-radius:16px 16px 4px 16px;padding:.6rem 1rem;font-size:.8rem;color:var(--text);max-width:180px;text-align:center;line-height:1.4;opacity:0;transform:translateY(8px) scale(.95);transition:.4s cubic-bezier(.34,1.56,.64,1);box-shadow:0 8px 24px rgba(0,0,0,.4)}
-#avatar-bubble.show{opacity:1;transform:translateY(0) scale(1)}
-#avatar-face{width:70px;height:70px;position:relative;cursor:pointer;pointer-events:all}
-.av-body{width:70px;height:70px;border-radius:50%;background:linear-gradient(135deg,#1e293b,#0f172a);border:2px solid rgba(56,189,248,.4);display:flex;align-items:center;justify-content:center;font-size:2.2rem;transition:.3s;box-shadow:0 0 20px rgba(56,189,248,.15)}
-#avatar-face:hover .av-body{box-shadow:0 0 30px rgba(56,189,248,.4);transform:scale(1.08)}
-.av-eyes{position:absolute;top:28%;left:50%;transform:translateX(-50%);display:flex;gap:10px}
-.av-eye{width:8px;height:8px;background:#38bdf8;border-radius:50%;transition:.3s;box-shadow:0 0 6px #38bdf8}
-.av-eye.wide{height:12px;width:6px;border-radius:3px}
-.av-eye.closed{height:2px;border-radius:2px}
-.av-mouth{position:absolute;bottom:28%;left:50%;transform:translateX(-50%);width:16px;height:8px;border-bottom:2px solid #38bdf8;border-radius:0 0 8px 8px;transition:.3s}
-.av-mouth.smile{width:20px;height:10px}
-.av-mouth.wow{width:10px;height:10px;border-radius:50%;border:2px solid #38bdf8;border-top:none}
 /* ── Responsive ── */
-@media(max-width:1100px){
-  #hero{grid-template-columns:1fr 300px;gap:2rem}
-  .sphere-char{width:250px;height:250px}
-}
 @media(max-width:900px){
-  #hero{grid-template-columns:1fr;text-align:center}
-  .hero-right{order:-1;margin-bottom:1rem}
-  .sphere-char{width:200px;height:200px}
-  .hero-content{max-width:100%}
-  .hero-btns{justify-content:center}
-  .hero-socials{justify-content:center}
+  .hero-stats{display:none}
   #about .about-grid{grid-template-columns:1fr}
   #contact .contact-grid{grid-template-columns:1fr}
   .nav-links{display:none}
+  #buddy-wrap{right:.8rem;bottom:1rem}
+  #buddy{width:88px;height:104px}
+  .buddy-body{width:88px;height:98px}
 }
 @media(max-width:600px){
   section{padding:4rem 5%}
   .hero-btns{flex-direction:column}
-  .sphere-char{width:160px;height:160px}
-  .s-eye{width:36px;height:36px}
-  .s-pupil{width:18px;height:18px}
+  #buddy{width:72px;height:84px}
+  .buddy-body{width:72px;height:80px}
+  .b-eye{width:22px;height:22px}
+  .b-pupil{width:11px;height:11px}
 }
 </style>
 </head>
@@ -323,16 +306,23 @@ footer span{color:var(--blue)}
 <div class="blob blob2"></div>
 <div class="blob blob3"></div>
 
-<!-- AVATAR -->
-<div id="avatar-wrap">
-  <div id="avatar-bubble"></div>
-  <div id="avatar-face" onclick="avatarClick()">
-    <div class="av-body">&#128104;&#8205;&#128187;</div>
-    <div class="av-eyes">
-      <div class="av-eye" id="eye-l"></div>
-      <div class="av-eye" id="eye-r"></div>
+<!-- BUDDY — fixed companion, follows you everywhere -->
+<div id="buddy-wrap">
+  <div id="buddy-bubble"></div>
+  <div id="buddy" class="mood-smile" onclick="buddyClick()" title="Poke me!">
+    <div class="buddy-body">
+      <div class="buddy-sheen"></div>
+      <div class="buddy-arm buddy-arm-l"></div>
+      <div class="buddy-arm buddy-arm-r"></div>
+      <div class="buddy-face">
+        <div class="buddy-eyes-row">
+          <div class="b-eye" id="b-eye-l"><div class="b-pupil" id="b-pup-l"><div class="b-shine"></div><div class="b-shine2"></div></div></div>
+          <div class="b-eye" id="b-eye-r"><div class="b-pupil" id="b-pup-r"><div class="b-shine"></div><div class="b-shine2"></div></div></div>
+        </div>
+        <div class="b-mouth"></div>
+      </div>
     </div>
-    <div class="av-mouth" id="av-mouth"></div>
+    <div class="buddy-shadow"></div>
   </div>
 </div>
 <!-- NAV -->
@@ -384,42 +374,18 @@ footer span{color:var(--blue)}
       </a>
     </div>
   </div>
-  <!-- HERO RIGHT — Big Sphere + Stats -->
-  <div class="hero-right">
-    <div class="sphere-wrap" id="sphere-wrap">
-      <div class="sphere-bubble" id="sphere-bubble">Hey there! 👋 Welcome!</div>
-      <div class="sphere-char mood-smile" id="sphere-char" onclick="sphereClick()">
-        <div class="sphere-highlight"></div>
-        <div class="sphere-highlight2"></div>
-        <div class="sphere-face">
-          <div class="sphere-eyes-row">
-            <div class="s-eye" id="seye-l">
-              <div class="s-pupil" id="spup-l"><div class="s-shine"></div><div class="s-shine2"></div></div>
-            </div>
-            <div class="s-eye" id="seye-r">
-              <div class="s-pupil" id="spup-r"><div class="s-shine"></div><div class="s-shine2"></div></div>
-            </div>
-          </div>
-          <div class="s-nose"></div>
-          <div class="s-mouth" id="s-mouth"></div>
-        </div>
-      </div>
-      <div class="sphere-shadow"></div>
-      <div class="sphere-label">SA ·  sphere</div>
+  <div class="hero-stats">
+    <div class="stat-card reveal">
+      <div class="stat-num">4</div>
+      <div class="stat-label">Co-op Placements</div>
     </div>
-    <div class="hero-stats">
-      <div class="stat-card reveal">
-        <div class="stat-num">4</div>
-        <div class="stat-label">Co-op Placements</div>
-      </div>
-      <div class="stat-card reveal">
-        <div class="stat-num" id="proj-count">1</div>
-        <div class="stat-label">Daily Projects</div>
-      </div>
-      <div class="stat-card reveal">
-        <div class="stat-num">10+</div>
-        <div class="stat-label">Tech Stacks</div>
-      </div>
+    <div class="stat-card reveal">
+      <div class="stat-num" id="proj-count">1</div>
+      <div class="stat-label">Daily Projects</div>
+    </div>
+    <div class="stat-card reveal">
+      <div class="stat-num">10+</div>
+      <div class="stat-label">Tech Stacks</div>
     </div>
   </div>
 </section>
@@ -1016,184 +982,153 @@ function handleForm(e) {
   }, 3000);
 }
 
-// ── Avatar logic ──
-const bubble = document.getElementById('avatar-bubble');
-const eyeL = document.getElementById('eye-l');
-const eyeR = document.getElementById('eye-r');
-const mouth = document.getElementById('av-mouth');
-let bubbleTimer;
+// ── BUDDY CHARACTER ──
+const buddy        = document.getElementById('buddy');
+const buddyBubble  = document.getElementById('buddy-bubble');
+const bEyeL        = document.getElementById('b-eye-l');
+const bEyeR        = document.getElementById('b-eye-r');
+const bPupL        = document.getElementById('b-pup-l');
+const bPupR        = document.getElementById('b-pup-r');
 
-const sectionMessages = {
-  hero:       { msg: "Hey there! 👋 Welcome to my portfolio!", mood: 'smile' },
-  about:      { msg: "That's me! CS at UVic + 4 co-ops 🎓", mood: 'smile' },
-  skills:     { msg: "I know a few things... 😏", mood: 'smile' },
-  experience: { msg: "Great choice! This is the good stuff 💼", mood: 'excited' },
-  projects:   { msg: "I push new code every single day! 🚀", mood: 'excited' },
-  certs:      { msg: "More certs on the way! 📜", mood: 'smile' },
-  contact:    { msg: "Ooh, are you about to hire me? 🤞", mood: 'wow' },
+let buddyBubbleTimer, blinkTimer, idleTimer, scrollTimer;
+let isBlinking = false, isScrolling = false;
+let currentSection = 'hero';
+let lastScrollY = window.scrollY;
+let scrollVel = 0;
+
+// Per-section chat pools (rotates on each visit)
+const sectionPool = {
+  hero:       { mood:'smile',  msgs:["Hey! 👋 Welcome to my site!","I built this whole thing 😎","Scroll down, good stuff ahead! 👇"] },
+  about:      { mood:'smile',  msgs:["That's me in a nutshell! 🙋","4 co-ops, not too shabby 💪","UVic CS grad right here 🎓"] },
+  skills:     { mood:'smirk', msgs:["I know ALL of those 😏","Azure is my playground ☁️","K8s + Docker = ❤️"] },
+  experience: { mood:'grin',  msgs:["Good times! 💼","Amazon was wild 📦","BC Pension really trusted me! 🏦"] },
+  projects:   { mood:'grin',  msgs:["New tool every single day! 📅","Built that one in 3 hours 🔥","Check the GitHub link! 💻"] },
+  certs:      { mood:'smile', msgs:["AZ-900 already done! ✅","More certs incoming 📚","Study grind is real 🧠"] },
+  contact:    { mood:'wow',   msgs:["Ooh are you about to hire me? 🤞","I'm very available! 📩","Victoria → anywhere ✈️"] },
 };
+const sectionIdx = {};
 
-const clickMessages = [
-  "Nice click! 😄",
-  "Stop poking me! 😅",
-  "OK OK, I see you 👀",
-  "Really? Again? 🙄",
-  "Hire me and I'll stop 😂",
-  "Psst — check my GitHub! 💻",
-];
-let clickCount = 0;
+// Scroll messages
+const fastScrollMsgs  = ["Woah slow down!! 🏃","WHERE ARE WE GOING 😱","Wheeeee! 🎢","Brakes! Brakes! 😵"];
+const slowScrollMsgs  = ["Reading carefully huh 🧐","Ooh good part! 📖","Take your time 😌","Interesting…. 👀"];
+let fastIdx = 0, slowIdx = 0;
 
-function showBubble(text, mood) {
-  bubble.textContent = text;
-  bubble.classList.add('show');
-  setMood(mood || 'smile');
-  clearTimeout(bubbleTimer);
-  bubbleTimer = setTimeout(() => bubble.classList.remove('show'), 3500);
+// Show bubble
+function showBuddy(text, mood, ms) {
+  buddyBubble.textContent = text;
+  buddyBubble.classList.add('show');
+  if (mood) setBuddyMood(mood);
+  clearTimeout(buddyBubbleTimer);
+  buddyBubbleTimer = setTimeout(() => buddyBubble.classList.remove('show'), ms || 3500);
 }
 
-function setMood(mood) {
-  eyeL.className = 'av-eye';
-  eyeR.className = 'av-eye';
-  mouth.className = 'av-mouth';
-  if (mood === 'excited') {
-    eyeL.classList.add('wide');
-    eyeR.classList.add('wide');
-    mouth.classList.add('smile');
-  } else if (mood === 'wow') {
-    eyeL.classList.add('wide');
-    eyeR.classList.add('wide');
-    mouth.classList.add('wow');
-  } else if (mood === 'blink') {
-    eyeL.classList.add('closed');
-    eyeR.classList.add('closed');
-    setTimeout(() => { eyeL.className='av-eye'; eyeR.className='av-eye'; }, 200);
-  } else {
-    mouth.classList.add('smile');
+// Set expression
+function setBuddyMood(mood) {
+  const scrollClass = isScrolling ? ' scrolling' : '';
+  buddy.className = 'mood-' + mood + scrollClass;
+}
+
+// Scroll listener
+window.addEventListener('scroll', () => {
+  const sy = window.scrollY;
+  scrollVel = Math.abs(sy - lastScrollY);
+  lastScrollY = sy;
+
+  if (!isScrolling) {
+    isScrolling = true;
+    buddy.classList.add('scrolling');
   }
-}
+  clearTimeout(scrollTimer);
 
-function avatarClick() {
-  const msg = clickMessages[clickCount % clickMessages.length];
-  clickCount++;
-  showBubble(msg, clickCount % 3 === 0 ? 'wow' : 'smile');
-}
+  // Random scroll comments (not every frame — throttled by Math.random)
+  if (Math.random() < 0.06) {
+    if (scrollVel > 30) {
+      showBuddy(fastScrollMsgs[fastIdx++ % fastScrollMsgs.length], 'wow', 1600);
+    } else if (scrollVel > 0 && scrollVel < 6) {
+      showBuddy(slowScrollMsgs[slowIdx++ % slowScrollMsgs.length], 'smile', 2200);
+    }
+  }
 
-// Blink randomly
-setInterval(() => setMood('blink'), 4000 + Math.random() * 3000);
+  // Stopped scrolling
+  scrollTimer = setTimeout(() => {
+    isScrolling = false;
+    buddy.classList.remove('scrolling');
+    const sec = sectionPool[currentSection];
+    if (sec) {
+      setBuddyMood(sec.mood);
+      const i = sectionIdx[currentSection] || 0;
+      sectionIdx[currentSection] = (i + 1) % sec.msgs.length;
+      setTimeout(() => showBuddy(sec.msgs[i], sec.mood, 3500), 500);
+    }
+    // reset idle timer
+    clearTimeout(idleTimer);
+    idleTimer = setTimeout(randomIdle, 9000 + Math.random() * 7000);
+  }, 420);
+}, { passive: true });
 
-// Greet on load
-setTimeout(() => showBubble("Hey there! 👋 Welcome!", 'smile'), 1500);
-
-// ── BIG SPHERE CHARACTER ──
-const sphereChar = document.getElementById('sphere-char');
-const sphereBubble = document.getElementById('sphere-bubble');
-const eyeL2 = document.getElementById('seye-l');
-const eyeR2 = document.getElementById('seye-r');
-const pupL = document.getElementById('spup-l');
-const pupR = document.getElementById('spup-r');
-
-let sphereBubbleTimer;
-let isBlinking = false;
-
-function showSphereBubble(text) {
-  sphereBubble.textContent = text;
-  sphereBubble.classList.add('show');
-  clearTimeout(sphereBubbleTimer);
-  sphereBubbleTimer = setTimeout(() => sphereBubble.classList.remove('show'), 3600);
-}
-
-function setSphereExpression(mood) {
-  sphereChar.className = 'sphere-char mood-' + mood;
-}
-
-// Section-to-expression map
-const sphereSections = {
-  hero:       { mood: 'smile',    msg: 'Hey there! 👋 Welcome to my portfolio!' },
-  about:      { mood: 'smile',    msg: "That's me! CS grad + 4 co-ops 🎓" },
-  skills:     { mood: 'smirk',   msg: 'I know a few things… 😏' },
-  experience: { mood: 'grin',    msg: 'Great choice! This is the good stuff 💼' },
-  projects:   { mood: 'grin',    msg: 'I push new code every single day! 🚀' },
-  certs:      { mood: 'smile',   msg: 'More certs incoming! 📜' },
-  contact:    { mood: 'wow',     msg: 'Ooh, are you about to hire me? 🤞' },
-};
-
-// Section-aware sphere expressions
-const sphereObserver = new IntersectionObserver((entries) => {
+// Section detection
+const sectionObs = new IntersectionObserver((entries) => {
   entries.forEach(e => {
     if (e.isIntersecting) {
-      const id = e.target.id;
-      if (sphereSections[id]) {
-        setSphereExpression(sphereSections[id].mood);
-        setTimeout(() => showSphereBubble(sphereSections[id].msg), 300);
-      }
+      currentSection = e.target.id;
+      if (!isScrolling) setBuddyMood(sectionPool[currentSection]?.mood || 'smile');
     }
   });
-}, { threshold: 0.4 });
-document.querySelectorAll('section[id]').forEach(s => sphereObserver.observe(s));
+}, { threshold: 0.35 });
+document.querySelectorAll('section[id]').forEach(s => sectionObs.observe(s));
 
-// Mouse tracking — pupils follow cursor
+// Pupil tracking
 document.addEventListener('mousemove', (e) => {
   if (isBlinking) return;
-  [
-    { eye: eyeL2, pup: pupL },
-    { eye: eyeR2, pup: pupR }
-  ].forEach(({ eye, pup }) => {
-    const rect = eye.getBoundingClientRect();
-    const cx = rect.left + rect.width / 2;
-    const cy = rect.top + rect.height / 2;
-    const dx = e.clientX - cx;
-    const dy = e.clientY - cy;
-    const dist = Math.sqrt(dx*dx + dy*dy);
-    const maxMove = 10;
-    const ratio = Math.min(dist, 60) / 60;
-    const mx = (dx / dist || 0) * maxMove * ratio;
-    const my = (dy / dist || 0) * maxMove * ratio;
-    pup.style.transform = `translate(calc(-50% + ${mx}px), calc(-50% + ${my}px))`;
+  [{eye: bEyeL, pup: bPupL}, {eye: bEyeR, pup: bPupR}].forEach(({eye, pup}) => {
+    const r = eye.getBoundingClientRect();
+    const cx = r.left + r.width / 2, cy = r.top + r.height / 2;
+    const dx = e.clientX - cx, dy = e.clientY - cy;
+    const dist = Math.sqrt(dx*dx + dy*dy) || 1;
+    const max = 6, ratio = Math.min(dist, 90) / 90;
+    pup.style.transform = `translate(calc(-50% + ${(dx/dist)*max*ratio}px), calc(-50% + ${(dy/dist)*max*ratio}px))`;
   });
 });
 
-// Sphere blink
-function sphereBlink() {
+// Blink
+function doBlink() {
   isBlinking = true;
-  eyeL2.classList.add('closed');
-  eyeR2.classList.add('closed');
-  setTimeout(() => {
-    eyeL2.classList.remove('closed');
-    eyeR2.classList.remove('closed');
-    isBlinking = false;
-  }, 180);
+  bEyeL.classList.add('blink'); bEyeR.classList.add('blink');
+  setTimeout(() => { bEyeL.classList.remove('blink'); bEyeR.classList.remove('blink'); isBlinking = false; }, 150);
 }
-setInterval(() => sphereBlink(), 3500 + Math.random() * 3000);
+setInterval(() => doBlink(), 3200 + Math.random() * 3000);
 
-// Sphere click responses
-const sphereClickMsgs = [
-  'Nice click! 😄', 'Stop poking me! 😅', 'OK OK, I see you 👀',
-  'Really? Again? 🙄', 'Hire me and I\'ll stop 😂', 'Check my GitHub! 💻',
-  'I\'m watching you 👁️', 'Easter egg unlocked! 🥚',
-];
-let sClickIdx = 0;
-function sphereClick() {
-  showSphereBubble(sphereClickMsgs[sClickIdx % sphereClickMsgs.length]);
-  sClickIdx++;
-  setSphereExpression(['grin','wow','smirk','smile'][sClickIdx % 4]);
-  setTimeout(() => setSphereExpression('smile'), 2000);
-}
-
-// Greet on load with sphere bubble
-setTimeout(() => { showSphereBubble('Hey there! 👋 Welcome!'); }, 1200);
-
-// Section-aware comments
-const sectionObserver = new IntersectionObserver((entries) => {
-  entries.forEach(e => {
-    if (e.isIntersecting) {
-      const id = e.target.id;
-      if (sectionMessages[id]) {
-        setTimeout(() => showBubble(sectionMessages[id].msg, sectionMessages[id].mood), 400);
-      }
+// Random idle chatter
+function randomIdle() {
+  if (!isScrolling && !buddyBubble.classList.contains('show')) {
+    const pool = sectionPool[currentSection];
+    if (pool) {
+      const i = Math.floor(Math.random() * pool.msgs.length);
+      showBuddy(pool.msgs[i], pool.mood, 3000);
     }
-  });
-}, { threshold: 0.4 });
-document.querySelectorAll('section[id]').forEach(s => sectionObserver.observe(s));
+  }
+  idleTimer = setTimeout(randomIdle, 11000 + Math.random() * 9000);
+}
+setTimeout(randomIdle, 14000);
+
+// Click / poke
+const pokeLines = [
+  "Hey that tickles! 😄","Ow! Just kidding 😅","OK I see you 👀",
+  "Stop it… or don't 😏","I'm working here! 💼","Fine, here's a wink 😉",
+  "You found my secret 🔮","Hire me and I'll stop 😂","My GitHub > this game 💻",
+  "I keep count btw 👁️",
+];
+let pokeIdx = 0;
+function buddyClick() {
+  const moods = ['grin','wow','smirk','smile'];
+  showBuddy(pokeLines[pokeIdx % pokeLines.length], moods[pokeIdx % moods.length], 2800);
+  pokeIdx++;
+  // wink every 5 pokes
+  if (pokeIdx % 5 === 0) { bEyeL.classList.add('blink'); setTimeout(() => bEyeL.classList.remove('blink'), 400); }
+}
+
+// Greet on load
+setTimeout(() => showBuddy("Hey! 👋 I'll keep you company as you scroll 😄", 'smile', 4000), 1400);
 
 // ── Active nav highlight ──
 const sections = document.querySelectorAll('section[id]');
