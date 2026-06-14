@@ -794,6 +794,12 @@ footer span{color:var(--blue)}
       <span class="cert-status status-earned">Earned</span>
     </div>
     <div class="cert-card reveal">
+      <div class="cert-icon">&#9749;</div>
+      <div class="cert-name">Azure Fundamentals</div>
+      <div class="cert-body">Microsoft · AZ-900</div>
+      <span class="cert-status status-progress">In Progress</span>
+    </div>
+    <div class="cert-card reveal">
       <div class="cert-icon">&#9881;</div>
       <div class="cert-name">Azure DevOps Engineer</div>
       <div class="cert-body">AZ-400 · Boards, Repos, Pipelines, Artifacts</div>
@@ -860,20 +866,20 @@ footer span{color:var(--blue)}
     <div class="reveal">
       <div class="contact-form">
         <h4 style="font-family:'Space Grotesk',sans-serif;font-size:1.1rem;margin-bottom:1.5rem">Send a Message</h4>
-        <form onsubmit="handleForm(event)">
+        <form id="contact-form" onsubmit="handleForm(event)">
           <div class="form-group">
             <label>Your Name</label>
-            <input type="text" placeholder="Jane Smith" required/>
+            <input type="text" id="cf-name" placeholder="Jane Smith" required/>
           </div>
           <div class="form-group">
             <label>Email</label>
-            <input type="email" placeholder="jane@company.com" required/>
+            <input type="email" id="cf-email" placeholder="jane@company.com" required/>
           </div>
           <div class="form-group">
             <label>Message</label>
-            <textarea placeholder="Tell me about the role or project..." required></textarea>
+            <textarea id="cf-msg" placeholder="Tell me about the role or project..." required></textarea>
           </div>
-          <button type="submit" class="form-submit">Send Message &#8594;</button>
+          <button type="submit" class="form-submit" id="form-btn">Send Message &#8594;</button>
         </form>
       </div>
     </div>
@@ -969,17 +975,56 @@ const observer = new IntersectionObserver((entries) => {
 }, { threshold: .1 });
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-// ── Form handler ──
-function handleForm(e) {
+// ── Form handler — sends to sadhik021@gmail.com via FormSubmit.co ──
+async function handleForm(e) {
   e.preventDefault();
-  const btn = e.target.querySelector('.form-submit');
-  btn.textContent = 'Message Sent! ✓';
-  btn.style.background = 'linear-gradient(135deg,#34d399,#059669)';
-  setTimeout(() => {
-    btn.textContent = 'Send Message →';
-    btn.style.background = '';
-    e.target.reset();
-  }, 3000);
+  const btn   = document.getElementById('form-btn');
+  const name  = document.getElementById('cf-name').value.trim();
+  const email = document.getElementById('cf-email').value.trim();
+  const msg   = document.getElementById('cf-msg').value.trim();
+
+  btn.textContent = 'Sending…';
+  btn.disabled = true;
+  btn.style.opacity = '.7';
+
+  try {
+    const res = await fetch('https://formsubmit.co/ajax/sadhik021@gmail.com', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({
+        name,
+        email,
+        message: msg,
+        _subject: `Portfolio contact from ${name}`,
+        _captcha: 'false',
+      })
+    });
+    const data = await res.json();
+    if (data.success === 'true' || res.ok) {
+      btn.textContent = 'Message Sent! ✓';
+      btn.style.background = 'linear-gradient(135deg,#34d399,#059669)';
+      btn.style.opacity = '1';
+      document.getElementById('contact-form').reset();
+      // buddy reaction
+      if (typeof showBuddy === 'function') showBuddy("Ooh a message! 👀 Sadhik will reply soon!", 'wow', 4000);
+      setTimeout(() => {
+        btn.textContent = 'Send Message →';
+        btn.style.background = '';
+        btn.disabled = false;
+      }, 4000);
+    } else {
+      throw new Error('not ok');
+    }
+  } catch {
+    btn.textContent = 'Failed — try emailing directly';
+    btn.style.background = 'linear-gradient(135deg,#f87171,#dc2626)';
+    btn.style.opacity = '1';
+    setTimeout(() => {
+      btn.textContent = 'Send Message →';
+      btn.style.background = '';
+      btn.disabled = false;
+    }, 4000);
+  }
 }
 
 // ── BUDDY CHARACTER ──
@@ -1003,7 +1048,7 @@ const sectionPool = {
   skills:     { mood:'smirk', msgs:["I know ALL of those 😏","Azure is my playground ☁️","K8s + Docker = ❤️"] },
   experience: { mood:'grin',  msgs:["Good times! 💼","Amazon was wild 📦","BC Pension really trusted me! 🏦"] },
   projects:   { mood:'grin',  msgs:["New tool every single day! 📅","Built that one in 3 hours 🔥","Check the GitHub link! 💻"] },
-  certs:      { mood:'smile', msgs:["AZ-900 already done! ✅","More certs incoming 📚","Study grind is real 🧠"] },
+  certs:      { mood:'smile', msgs:["AZ-900 almost done! 🔥","More certs incoming 📚","Study grind is real 🧠"] },
   contact:    { mood:'wow',   msgs:["Ooh are you about to hire me? 🤞","I'm very available! 📩","Victoria → anywhere ✈️"] },
 };
 const sectionIdx = {};
