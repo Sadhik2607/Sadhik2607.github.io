@@ -53,18 +53,18 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 5%;display:flex;al
 .nav-cta:hover{opacity:.85;transform:translateY(-1px)}
 
 /* ── Hero ── */
-#hero{position:relative;min-height:100vh;display:flex;align-items:center;padding:0 5%;z-index:1}
-.hero-content{max-width:800px}
+#hero{position:relative;min-height:100vh;display:grid;grid-template-columns:1fr 360px;align-items:center;gap:3rem;padding:0 5%;z-index:1}
+.hero-content{max-width:600px}
 .hero-badge{display:inline-flex;align-items:center;gap:.5rem;background:rgba(56,189,248,.1);border:1px solid rgba(56,189,248,.3);border-radius:100px;padding:.35rem 1rem;font-size:.8rem;color:var(--blue);font-weight:500;margin-bottom:1.5rem}
 .hero-badge .dot{width:6px;height:6px;background:var(--green);border-radius:50%;animation:pulse 2s infinite}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
-h1.hero-name{font-family:'Space Grotesk',sans-serif;font-size:clamp(2.8rem,6vw,5rem);font-weight:800;line-height:1.1;margin-bottom:.5rem}
+h1.hero-name{font-family:'Space Grotesk',sans-serif;font-size:clamp(2.4rem,5vw,4.2rem);font-weight:800;line-height:1.1;margin-bottom:.5rem}
 .gradient-text{background:linear-gradient(135deg,var(--blue) 0%,var(--purple) 50%,var(--pink) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.hero-roles{font-size:clamp(1.1rem,2.5vw,1.5rem);color:var(--muted);font-weight:400;margin-bottom:1.5rem;min-height:2rem}
+.hero-roles{font-size:clamp(1rem,2vw,1.4rem);color:var(--muted);font-weight:400;margin-bottom:1.5rem;min-height:2rem}
 #typed{color:var(--blue);font-weight:600}
 .cursor{animation:blink .7s infinite}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
-.hero-desc{font-size:1.05rem;color:var(--muted);line-height:1.8;max-width:580px;margin-bottom:2.5rem}
+.hero-desc{font-size:1rem;color:var(--muted);line-height:1.8;max-width:520px;margin-bottom:2.5rem}
 .hero-btns{display:flex;gap:1rem;flex-wrap:wrap}
 .btn-primary{background:linear-gradient(135deg,var(--blue2),var(--purple));color:#fff;padding:.8rem 2rem;border-radius:10px;font-weight:600;font-size:.95rem;border:none;cursor:pointer;transition:.3s;display:inline-flex;align-items:center;gap:.5rem}
 .btn-primary:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(14,165,233,.3)}
@@ -73,10 +73,106 @@ h1.hero-name{font-family:'Space Grotesk',sans-serif;font-size:clamp(2.8rem,6vw,5
 .hero-socials{display:flex;gap:1rem;margin-top:2rem}
 .social-icon{width:42px;height:42px;border-radius:10px;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;transition:.3s;color:var(--muted)}
 .social-icon:hover{border-color:var(--blue);color:var(--blue);transform:translateY(-3px);background:rgba(56,189,248,.08)}
-.hero-stats{position:absolute;right:5%;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:1.5rem}
-.stat-card{background:rgba(15,23,42,.8);border:1px solid var(--border);border-radius:16px;padding:1.2rem 1.5rem;backdrop-filter:blur(20px);text-align:center;min-width:130px}
-.stat-num{font-family:'Space Grotesk',sans-serif;font-size:2rem;font-weight:700;background:linear-gradient(135deg,var(--blue),var(--purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-.stat-label{font-size:.75rem;color:var(--muted);margin-top:.25rem}
+.hero-right{display:flex;flex-direction:column;align-items:center;gap:1.5rem}
+.hero-stats{display:flex;flex-direction:row;gap:.8rem;width:100%;justify-content:center;flex-wrap:wrap}
+.stat-card{background:rgba(15,23,42,.8);border:1px solid var(--border);border-radius:16px;padding:1rem 1.2rem;backdrop-filter:blur(20px);text-align:center;min-width:100px;flex:1}
+.stat-num{font-family:'Space Grotesk',sans-serif;font-size:1.8rem;font-weight:700;background:linear-gradient(135deg,var(--blue),var(--purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.stat-label{font-size:.72rem;color:var(--muted);margin-top:.2rem}
+
+/* ── Big Sphere Character ── */
+.sphere-wrap{position:relative;display:flex;flex-direction:column;align-items:center;user-select:none}
+.sphere-char{
+  width:300px;height:300px;border-radius:50%;
+  position:relative;
+  background:radial-gradient(circle at 35% 30%,#1a3352 0%,#08101e 55%,#020608 100%);
+  border:2px solid rgba(56,189,248,.22);
+  box-shadow:0 0 70px rgba(56,189,248,.22),0 0 150px rgba(56,189,248,.07),inset 0 0 80px rgba(0,0,0,.55);
+  animation:sphere-bob 4s ease-in-out infinite;
+  cursor:pointer;transition:box-shadow .4s,transform .2s;
+}
+.sphere-char:hover{box-shadow:0 0 100px rgba(56,189,248,.38),0 0 200px rgba(56,189,248,.1),inset 0 0 80px rgba(0,0,0,.55)}
+@keyframes sphere-bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-18px)}}
+.sphere-highlight{
+  position:absolute;top:11%;left:16%;
+  width:40%;height:33%;
+  background:radial-gradient(ellipse at 45% 45%,rgba(56,189,248,.45) 0%,rgba(56,189,248,.1) 55%,transparent 80%);
+  border-radius:50%;transform:rotate(-22deg);pointer-events:none;
+}
+.sphere-highlight2{
+  position:absolute;bottom:20%;right:15%;
+  width:20%;height:16%;
+  background:radial-gradient(ellipse,rgba(167,139,250,.25) 0%,transparent 70%);
+  border-radius:50%;pointer-events:none;
+}
+.sphere-face{
+  position:absolute;top:0;left:0;right:0;bottom:0;
+  display:flex;flex-direction:column;justify-content:center;align-items:center;gap:0;
+}
+.sphere-eyes-row{display:flex;gap:28px;margin-bottom:12px}
+.s-eye{
+  width:54px;height:54px;border-radius:50%;
+  background:#ecf5fe;
+  position:relative;
+  box-shadow:0 0 10px rgba(255,255,255,.45),inset 0 2px 5px rgba(0,0,0,.08);
+  overflow:hidden;
+  transition:height .25s,border-radius .25s,margin-top .25s,width .25s;
+}
+.s-eye.wink{height:5px!important;border-radius:4px!important;overflow:hidden;margin-top:26px}
+.s-eye.wide{transform:scale(1.18)}
+.s-eye.squint{height:22px;border-radius:50px;overflow:hidden}
+.s-eye.closed{height:5px!important;border-radius:4px!important;overflow:hidden;margin-top:26px}
+.s-pupil{
+  position:absolute;
+  width:26px;height:26px;border-radius:50%;
+  background:#05101f;
+  top:50%;left:50%;
+  transform:translate(-50%,-50%);
+  transition:transform .07s ease-out,width .2s,height .2s;
+  will-change:transform;
+}
+.s-pupil.dilate{width:34px;height:34px}
+.s-shine{position:absolute;width:9px;height:9px;border-radius:50%;background:rgba(56,189,248,.9);top:16%;left:18%}
+.s-shine2{position:absolute;width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,.7);bottom:22%;right:16%}
+.s-nose{width:7px;height:7px;border-radius:50%;background:rgba(56,189,248,.35);margin:6px 0 14px}
+.s-mouth{
+  width:60px;height:0;
+  border-bottom:3px solid rgba(56,189,248,.75);
+  border-radius:0 0 30px 30px;
+  transition:all .4s cubic-bezier(.34,1.56,.64,1);
+  position:relative;
+}
+/* expression mods applied via class on .sphere-char */
+.sphere-char.mood-smile .s-mouth{width:60px;height:28px}
+.sphere-char.mood-grin .s-mouth{width:80px;height:40px;border-bottom-width:3px}
+.sphere-char.mood-wow .s-mouth{width:32px;height:32px;border-radius:50%;border:3px solid rgba(56,189,248,.75);border-top-color:transparent}
+.sphere-char.mood-smirk .s-mouth{width:38px;height:16px;border-radius:0 0 20px 6px;margin-left:18px}
+.sphere-char.mood-straight .s-mouth{width:44px;height:0;border-radius:0;border-bottom-width:3px}
+.sphere-char.mood-smile .s-eye.wide{transform:scale(1)} /* reset */
+.sphere-char.mood-grin .s-eye{transform:scale(1.12)}
+.sphere-char.mood-wow .s-eye{transform:scale(1.25)}
+.sphere-shadow{
+  width:190px;height:18px;
+  background:radial-gradient(ellipse,rgba(56,189,248,.18) 0%,transparent 70%);
+  border-radius:50%;margin-top:-6px;
+  animation:shadow-bob 4s ease-in-out infinite;
+}
+@keyframes shadow-bob{0%,100%{transform:scaleX(1);opacity:.8}50%{transform:scaleX(.75);opacity:.35}}
+.sphere-label{
+  font-size:.75rem;color:var(--blue);letter-spacing:2px;text-transform:uppercase;
+  font-family:'Fira Code',monospace;opacity:.7;margin-top:.4rem;
+}
+/* speech bubble on sphere */
+.sphere-bubble{
+  position:absolute;top:-70px;left:50%;transform:translateX(-50%) scale(.9);
+  background:rgba(15,23,42,.95);border:1px solid rgba(56,189,248,.4);
+  border-radius:16px 16px 16px 4px;
+  padding:.6rem 1rem;font-size:.82rem;color:var(--text);
+  white-space:nowrap;opacity:0;
+  transition:.35s cubic-bezier(.34,1.56,.64,1);
+  pointer-events:none;
+  box-shadow:0 8px 24px rgba(0,0,0,.5);
+}
+.sphere-bubble.show{opacity:1;transform:translateX(-50%) scale(1)}
 
 /* ── Section ── */
 section{position:relative;z-index:1;padding:6rem 5%}
@@ -196,8 +292,17 @@ footer span{color:var(--blue)}
 .av-mouth.smile{width:20px;height:10px}
 .av-mouth.wow{width:10px;height:10px;border-radius:50%;border:2px solid #38bdf8;border-top:none}
 /* ── Responsive ── */
+@media(max-width:1100px){
+  #hero{grid-template-columns:1fr 300px;gap:2rem}
+  .sphere-char{width:250px;height:250px}
+}
 @media(max-width:900px){
-  .hero-stats{display:none}
+  #hero{grid-template-columns:1fr;text-align:center}
+  .hero-right{order:-1;margin-bottom:1rem}
+  .sphere-char{width:200px;height:200px}
+  .hero-content{max-width:100%}
+  .hero-btns{justify-content:center}
+  .hero-socials{justify-content:center}
   #about .about-grid{grid-template-columns:1fr}
   #contact .contact-grid{grid-template-columns:1fr}
   .nav-links{display:none}
@@ -205,6 +310,9 @@ footer span{color:var(--blue)}
 @media(max-width:600px){
   section{padding:4rem 5%}
   .hero-btns{flex-direction:column}
+  .sphere-char{width:160px;height:160px}
+  .s-eye{width:36px;height:36px}
+  .s-pupil{width:18px;height:18px}
 }
 </style>
 </head>
@@ -258,7 +366,7 @@ footer span{color:var(--blue)}
       Software Developer &amp; Data Analyst with 2+ years across 4 co-op placements at
       BC Pension Corporation, UVic, Providence, and Amazon. I build CI/CD pipelines,
       Power Platform solutions, data dashboards, and cloud-hosted apps on Azure.
-      CS grad from UVic (2026).
+      CS graduate from UVic.
     </p>
     <div class="hero-btns">
       <a href="#projects"><button class="btn-primary">&#9654; View Projects</button></a>
@@ -276,18 +384,42 @@ footer span{color:var(--blue)}
       </a>
     </div>
   </div>
-  <div class="hero-stats">
-    <div class="stat-card reveal">
-      <div class="stat-num">4</div>
-      <div class="stat-label">Co-op Placements</div>
+  <!-- HERO RIGHT — Big Sphere + Stats -->
+  <div class="hero-right">
+    <div class="sphere-wrap" id="sphere-wrap">
+      <div class="sphere-bubble" id="sphere-bubble">Hey there! 👋 Welcome!</div>
+      <div class="sphere-char mood-smile" id="sphere-char" onclick="sphereClick()">
+        <div class="sphere-highlight"></div>
+        <div class="sphere-highlight2"></div>
+        <div class="sphere-face">
+          <div class="sphere-eyes-row">
+            <div class="s-eye" id="seye-l">
+              <div class="s-pupil" id="spup-l"><div class="s-shine"></div><div class="s-shine2"></div></div>
+            </div>
+            <div class="s-eye" id="seye-r">
+              <div class="s-pupil" id="spup-r"><div class="s-shine"></div><div class="s-shine2"></div></div>
+            </div>
+          </div>
+          <div class="s-nose"></div>
+          <div class="s-mouth" id="s-mouth"></div>
+        </div>
+      </div>
+      <div class="sphere-shadow"></div>
+      <div class="sphere-label">SA ·  sphere</div>
     </div>
-    <div class="stat-card reveal">
-      <div class="stat-num" id="proj-count">1</div>
-      <div class="stat-label">Daily Projects</div>
-    </div>
-    <div class="stat-card reveal">
-      <div class="stat-num">10+</div>
-      <div class="stat-label">Tech Stacks</div>
+    <div class="hero-stats">
+      <div class="stat-card reveal">
+        <div class="stat-num">4</div>
+        <div class="stat-label">Co-op Placements</div>
+      </div>
+      <div class="stat-card reveal">
+        <div class="stat-num" id="proj-count">1</div>
+        <div class="stat-label">Daily Projects</div>
+      </div>
+      <div class="stat-card reveal">
+        <div class="stat-num">10+</div>
+        <div class="stat-label">Tech Stacks</div>
+      </div>
     </div>
   </div>
 </section>
@@ -304,7 +436,7 @@ footer span{color:var(--blue)}
     <div class="about-text reveal">
       <span class="section-tag">About Me</span>
       <h2 class="section-title">Building CI/CD, Cloud Apps, and Data Systems That Ship.</h2>
-      <p>I'm a Software Developer &amp; Data Analyst based in Victoria, BC, completing a CS degree at the <strong style="color:var(--blue)">University of Victoria</strong> (graduating 2026) with 4 industry co-op placements across DevOps, cloud, and data analytics.</p>
+      <p>I'm a CS graduate from the <strong style="color:var(--blue)">University of Victoria</strong> with 4 industry co-op placements across DevOps, cloud, and data analytics. Based in Victoria, BC.</p>
       <p>At <strong style="color:var(--blue)">BC Pension Corporation</strong> I built a GitHub App (Probot + Node.js + GraphQL) deployed on Azure App Service via Docker, a full release approval platform in PowerApps/Power Automate, CI/CD workflows across 115+ repositories, and Power BI dashboards tracking DORA metrics for 3 engineering teams.</p>
       <p>Open to full-time roles in DevOps, cloud engineering, or data analytics in Vancouver, Toronto, Calgary, or remote. Every day I push a new open-source tool to GitHub targeting real job requirements.</p>
       <div class="about-tags">
@@ -734,7 +866,7 @@ footer span{color:var(--blue)}
     <div class="contact-info reveal">
       <span class="section-tag">Get In Touch</span>
       <h2 class="section-title">Let's Work Together</h2>
-      <p>CS grad from UVic (2026), actively looking for full-time DevOps, Cloud Engineering, and Data Analytics roles in Vancouver, Toronto, Calgary, or remote. If you're hiring or want to collaborate, let's talk.</p>
+      <p>CS graduate from UVic, actively looking for full-time DevOps, Cloud Engineering, and Data Analytics roles in Vancouver, Toronto, Calgary, or remote. If you're hiring or want to collaborate, let's talk.</p>
       <div class="contact-links">
         <a href="mailto:sadhik021@gmail.com" class="contact-link">
           <div class="contact-link-icon" style="background:rgba(56,189,248,.1)">&#128140;</div>
@@ -848,7 +980,7 @@ function animate() {
 animate();
 
 // ── Typing animation ──
-const roles = ['Software Developer','DevOps Engineer','Data Analyst','Cloud Engineer','CI/CD & Release Automation','Power Platform Developer','GitHub Actions & Docker','Open to Work · CS @ UVic 2026'];
+const roles = ['Software Developer','DevOps Engineer','Data Analyst','Cloud Engineer','CI/CD & Release Automation','Power Platform Developer','GitHub Actions & Docker','CS Graduate · Open to Work'];
 let ri = 0, ci = 0, deleting = false;
 const el = document.getElementById('typed');
 
@@ -951,6 +1083,104 @@ setInterval(() => setMood('blink'), 4000 + Math.random() * 3000);
 
 // Greet on load
 setTimeout(() => showBubble("Hey there! 👋 Welcome!", 'smile'), 1500);
+
+// ── BIG SPHERE CHARACTER ──
+const sphereChar = document.getElementById('sphere-char');
+const sphereBubble = document.getElementById('sphere-bubble');
+const eyeL2 = document.getElementById('seye-l');
+const eyeR2 = document.getElementById('seye-r');
+const pupL = document.getElementById('spup-l');
+const pupR = document.getElementById('spup-r');
+
+let sphereBubbleTimer;
+let isBlinking = false;
+
+function showSphereBubble(text) {
+  sphereBubble.textContent = text;
+  sphereBubble.classList.add('show');
+  clearTimeout(sphereBubbleTimer);
+  sphereBubbleTimer = setTimeout(() => sphereBubble.classList.remove('show'), 3600);
+}
+
+function setSphereExpression(mood) {
+  sphereChar.className = 'sphere-char mood-' + mood;
+}
+
+// Section-to-expression map
+const sphereSections = {
+  hero:       { mood: 'smile',    msg: 'Hey there! 👋 Welcome to my portfolio!' },
+  about:      { mood: 'smile',    msg: "That's me! CS grad + 4 co-ops 🎓" },
+  skills:     { mood: 'smirk',   msg: 'I know a few things… 😏' },
+  experience: { mood: 'grin',    msg: 'Great choice! This is the good stuff 💼' },
+  projects:   { mood: 'grin',    msg: 'I push new code every single day! 🚀' },
+  certs:      { mood: 'smile',   msg: 'More certs incoming! 📜' },
+  contact:    { mood: 'wow',     msg: 'Ooh, are you about to hire me? 🤞' },
+};
+
+// Section-aware sphere expressions
+const sphereObserver = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      const id = e.target.id;
+      if (sphereSections[id]) {
+        setSphereExpression(sphereSections[id].mood);
+        setTimeout(() => showSphereBubble(sphereSections[id].msg), 300);
+      }
+    }
+  });
+}, { threshold: 0.4 });
+document.querySelectorAll('section[id]').forEach(s => sphereObserver.observe(s));
+
+// Mouse tracking — pupils follow cursor
+document.addEventListener('mousemove', (e) => {
+  if (isBlinking) return;
+  [
+    { eye: eyeL2, pup: pupL },
+    { eye: eyeR2, pup: pupR }
+  ].forEach(({ eye, pup }) => {
+    const rect = eye.getBoundingClientRect();
+    const cx = rect.left + rect.width / 2;
+    const cy = rect.top + rect.height / 2;
+    const dx = e.clientX - cx;
+    const dy = e.clientY - cy;
+    const dist = Math.sqrt(dx*dx + dy*dy);
+    const maxMove = 10;
+    const ratio = Math.min(dist, 60) / 60;
+    const mx = (dx / dist || 0) * maxMove * ratio;
+    const my = (dy / dist || 0) * maxMove * ratio;
+    pup.style.transform = `translate(calc(-50% + ${mx}px), calc(-50% + ${my}px))`;
+  });
+});
+
+// Sphere blink
+function sphereBlink() {
+  isBlinking = true;
+  eyeL2.classList.add('closed');
+  eyeR2.classList.add('closed');
+  setTimeout(() => {
+    eyeL2.classList.remove('closed');
+    eyeR2.classList.remove('closed');
+    isBlinking = false;
+  }, 180);
+}
+setInterval(() => sphereBlink(), 3500 + Math.random() * 3000);
+
+// Sphere click responses
+const sphereClickMsgs = [
+  'Nice click! 😄', 'Stop poking me! 😅', 'OK OK, I see you 👀',
+  'Really? Again? 🙄', 'Hire me and I\'ll stop 😂', 'Check my GitHub! 💻',
+  'I\'m watching you 👁️', 'Easter egg unlocked! 🥚',
+];
+let sClickIdx = 0;
+function sphereClick() {
+  showSphereBubble(sphereClickMsgs[sClickIdx % sphereClickMsgs.length]);
+  sClickIdx++;
+  setSphereExpression(['grin','wow','smirk','smile'][sClickIdx % 4]);
+  setTimeout(() => setSphereExpression('smile'), 2000);
+}
+
+// Greet on load with sphere bubble
+setTimeout(() => { showSphereBubble('Hey there! 👋 Welcome!'); }, 1200);
 
 // Section-aware comments
 const sectionObserver = new IntersectionObserver((entries) => {
