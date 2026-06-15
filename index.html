@@ -187,7 +187,7 @@ section{position:relative;z-index:1;padding:6rem 5%}
 
 /* ── Skills ── */
 #skills{background:linear-gradient(180deg,var(--bg) 0%,rgba(15,23,42,.5) 100%)}
-.skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5rem}
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(310px,1fr));gap:1.5rem}
 .skill-cat{background:rgba(15,23,42,.7);border:1px solid var(--border);border-radius:20px;padding:1.8rem;backdrop-filter:blur(20px);transition:.3s}
 .skill-cat:hover{border-color:rgba(56,189,248,.3);transform:translateY(-4px)}
 .skill-cat-icon{font-size:2rem;margin-bottom:1rem}
@@ -459,24 +459,35 @@ footer span{color:var(--blue)}
       <div class="timeline-role">Software Developer Engineer</div>
       <div class="timeline-company">Providence · Co-op · Hyderabad, India (Hybrid)</div>
       <div class="timeline-desc">
-        Supported Azure-hosted applications and built data engineering tooling across distributed cloud environments.
+        Supported Azure-hosted applications and built cloud automation and data engineering tooling across distributed environments.
         <br/><br/>
-        - Maintained Azure applications handling <strong style="color:var(--text)">10,000+ daily API requests</strong> across REST services and cloud resources
+        - Maintained Azure applications (App Service, ACI, Azure SQL) handling <strong style="color:var(--text)">10,000+ daily API requests</strong> — managed VNets, NSGs, RBAC, and Azure Monitor alerts to ensure reliability and security posture
         <br/>
-        - Owned CI/CD pipelines for <strong style="color:var(--text)">12 services</strong>, reducing release cycle time from 45 minutes to under 10
+        - Owned and optimised CI/CD pipelines for <strong style="color:var(--text)">12 services</strong> using Azure Pipelines and GitHub Actions — reduced release cycle from 45 minutes to under 10 through parallelisation and stage caching
         <br/>
-        - Developed self-serve Power BI reporting dashboards surfacing operational trends, anomalies, and service performance patterns for engineering leadership
+        - Authored PowerShell and Azure CLI scripts to automate resource provisioning, configuration management, and environment teardown across dev, staging, and production subscriptions
         <br/>
-        - Automated recurring operational tasks with Python and Bash, reclaiming <strong style="color:var(--text)">6+ hours per week</strong> of manual engineering effort
+        - Developed self-serve Power BI reporting dashboards (DAX, Power Query, Row-Level Security) surfacing operational trends, anomalies, and service performance KPIs for engineering leadership
+        <br/>
+        - Automated recurring operational tasks with Python and Bash on Linux, reclaiming <strong style="color:var(--text)">6+ hours per week</strong> of manual engineering effort; deployed scripts via Docker containers on ACI
+        <br/>
+        - Integrated SonarQube SAST into CI pipelines and enforced Azure Policy compliance across subscriptions — reduced open CVEs by establishing quality gates on every build
       </div>
       <div class="timeline-tags">
         <span class="tl-tag">Azure</span>
-        <span class="tl-tag">CI/CD</span>
+        <span class="tl-tag">Azure Pipelines</span>
+        <span class="tl-tag">GitHub Actions</span>
+        <span class="tl-tag">Docker</span>
+        <span class="tl-tag">PowerShell</span>
+        <span class="tl-tag">Azure CLI</span>
         <span class="tl-tag">Python</span>
-        <span class="tl-tag">Bash</span>
+        <span class="tl-tag">Linux / Bash</span>
         <span class="tl-tag">Power BI</span>
+        <span class="tl-tag">DAX</span>
+        <span class="tl-tag">SQL Server</span>
+        <span class="tl-tag">SonarQube</span>
+        <span class="tl-tag">NSG / RBAC</span>
         <span class="tl-tag">REST APIs</span>
-        <span class="tl-tag">DevOps</span>
       </div>
     </div>
 
@@ -619,130 +630,209 @@ footer span{color:var(--blue)}
     <div class="divider"></div>
   </div>
   <div class="skills-grid">
+
     <div class="skill-cat reveal">
       <div class="skill-cat-icon">&#9881;</div>
       <h4>DevOps &amp; CI/CD</h4>
       <div class="skill-items">
         <span class="skill-pill hot">Azure DevOps</span>
         <span class="skill-pill hot">Azure Pipelines</span>
-        <span class="skill-pill">YAML Pipelines</span>
+        <span class="skill-pill hot">GitHub Actions</span>
+        <span class="skill-pill">YAML Pipelines (CI)</span>
+        <span class="skill-pill">Release Pipelines (CD)</span>
+        <span class="skill-pill">Classic Pipelines</span>
+        <span class="skill-pill">Multi-stage Pipelines</span>
         <span class="skill-pill">Azure Boards</span>
         <span class="skill-pill">Azure Repos</span>
-        <span class="skill-pill hot">GitHub Actions</span>
         <span class="skill-pill">Azure Artifacts</span>
-        <span class="skill-pill">SonarQube</span>
-        <span class="skill-pill">Artifactory</span>
+        <span class="skill-pill">Azure Test Plans</span>
+        <span class="skill-pill">Reusable Workflows</span>
+        <span class="skill-pill">Composite Actions</span>
         <span class="skill-pill">Service Connections</span>
         <span class="skill-pill">Agent Pools</span>
+        <span class="skill-pill">Gates &amp; Approvals</span>
+        <span class="skill-pill">SonarQube</span>
+        <span class="skill-pill">Artifactory</span>
       </div>
     </div>
+
     <div class="skill-cat reveal">
       <div class="skill-cat-icon">&#9749;</div>
-      <h4>Cloud &amp; Infrastructure</h4>
+      <h4>Cloud &amp; Infrastructure (Azure)</h4>
       <div class="skill-items">
         <span class="skill-pill hot">Microsoft Azure</span>
-        <span class="skill-pill hot">Terraform</span>
+        <span class="skill-pill hot">Terraform (IaC)</span>
         <span class="skill-pill hot">Kubernetes (K8s)</span>
         <span class="skill-pill">AKS</span>
         <span class="skill-pill hot">Docker</span>
-        <span class="skill-pill">Azure Container Registry</span>
-        <span class="skill-pill">Azure Container Instances</span>
+        <span class="skill-pill">DockerHub</span>
+        <span class="skill-pill">Azure Container Registry (ACR)</span>
+        <span class="skill-pill">Azure Container Instances (ACI)</span>
         <span class="skill-pill">Bicep</span>
-        <span class="skill-pill">Istio</span>
-        <span class="skill-pill">VNet / NSG</span>
+        <span class="skill-pill">ARM Templates</span>
+        <span class="skill-pill">Istio / Service Mesh</span>
+        <span class="skill-pill">Helm</span>
+        <span class="skill-pill">VNet / NSG / ASG</span>
+        <span class="skill-pill">Azure Load Balancer</span>
+        <span class="skill-pill">Azure Auto Scaling</span>
+        <span class="skill-pill">Azure Functions (Serverless)</span>
+        <span class="skill-pill">Azure Active Directory / Entra ID</span>
+        <span class="skill-pill">RBAC</span>
+        <span class="skill-pill">Azure Policy</span>
         <span class="skill-pill">Azure Monitor</span>
+        <span class="skill-pill">Application Insights</span>
+        <span class="skill-pill">Azure Key Vault</span>
+        <span class="skill-pill">Azure Storage</span>
+        <span class="skill-pill">Azure App Service</span>
+        <span class="skill-pill">Azure Pricing &amp; TCO</span>
       </div>
     </div>
+
+    <div class="skill-cat reveal">
+      <div class="skill-cat-icon">&#128187;</div>
+      <h4>Linux &amp; Systems</h4>
+      <div class="skill-items">
+        <span class="skill-pill hot">Linux (Ubuntu / RHEL)</span>
+        <span class="skill-pill hot">Bash / Shell Scripting</span>
+        <span class="skill-pill hot">SSH &amp; Remote Access</span>
+        <span class="skill-pill">Public &amp; Private Keys (RSA)</span>
+        <span class="skill-pill">File Permissions &amp; ACLs</span>
+        <span class="skill-pill">Users &amp; Groups</span>
+        <span class="skill-pill">Package Management (apt / yum)</span>
+        <span class="skill-pill">Linux Firewall (UFW / iptables)</span>
+        <span class="skill-pill">Vi / Nano</span>
+        <span class="skill-pill">System Security &amp; Auditing</span>
+        <span class="skill-pill">Cron Jobs</span>
+        <span class="skill-pill">Process Management</span>
+      </div>
+    </div>
+
     <div class="skill-cat reveal">
       <div class="skill-cat-icon">&#128274;</div>
       <h4>DevSecOps &amp; Security</h4>
       <div class="skill-items">
         <span class="skill-pill hot">SonarQube SAST</span>
-        <span class="skill-pill">Secrets Scanning</span>
+        <span class="skill-pill hot">Secrets Scanning</span>
+        <span class="skill-pill">Checkov (IaC Security)</span>
+        <span class="skill-pill">Trivy (Container Scanning)</span>
+        <span class="skill-pill">SBOM (SPDX / CycloneDX)</span>
+        <span class="skill-pill">OPA / Rego Policies</span>
+        <span class="skill-pill">OWASP Top 10</span>
         <span class="skill-pill">Dependency Auditing</span>
-        <span class="skill-pill">OWASP</span>
+        <span class="skill-pill">CVE Analysis</span>
         <span class="skill-pill">Mutual TLS (mTLS)</span>
         <span class="skill-pill">Istio Security</span>
         <span class="skill-pill">Azure Policies</span>
-        <span class="skill-pill">CVE Analysis</span>
         <span class="skill-pill">License Compliance</span>
+        <span class="skill-pill">SARIF v2.1.0</span>
+        <span class="skill-pill">GitHub Advanced Security</span>
       </div>
     </div>
+
     <div class="skill-cat reveal">
       <div class="skill-cat-icon">&#128202;</div>
-      <h4>Data &amp; Analytics</h4>
+      <h4>Data, SQL &amp; BI</h4>
       <div class="skill-items">
         <span class="skill-pill hot">SQL / T-SQL</span>
         <span class="skill-pill hot">Power BI</span>
-        <span class="skill-pill">Power Apps</span>
-        <span class="skill-pill">ETL Pipelines</span>
-        <span class="skill-pill">Data Quality</span>
-        <span class="skill-pill">Excel / DAX</span>
-        <span class="skill-pill">Azure SQL</span>
+        <span class="skill-pill hot">DAX</span>
+        <span class="skill-pill">Power Query (M)</span>
         <span class="skill-pill">Data Modeling</span>
+        <span class="skill-pill">ETL Pipelines</span>
+        <span class="skill-pill">Data Quality &amp; Profiling</span>
+        <span class="skill-pill">Azure SQL</span>
+        <span class="skill-pill">Azure Data Factory</span>
         <span class="skill-pill">Self-Serve Reporting</span>
+        <span class="skill-pill">KPI Dashboards</span>
+        <span class="skill-pill">Paginated Reports</span>
+        <span class="skill-pill">Row-Level Security (RLS)</span>
+        <span class="skill-pill">pandas / numpy</span>
+        <span class="skill-pill">Excel (Advanced)</span>
+        <span class="skill-pill">dbt</span>
+        <span class="skill-pill">DORA Metrics</span>
       </div>
     </div>
+
     <div class="skill-cat reveal">
-      <div class="skill-cat-icon">&#128187;</div>
+      <div class="skill-cat-icon">&#128296;</div>
       <h4>Languages &amp; Scripting</h4>
       <div class="skill-items">
         <span class="skill-pill hot">Python</span>
+        <span class="skill-pill hot">PowerShell</span>
+        <span class="skill-pill hot">Azure CLI</span>
         <span class="skill-pill">Bash / Shell</span>
-        <span class="skill-pill">PowerShell</span>
         <span class="skill-pill">YAML</span>
         <span class="skill-pill">SQL</span>
         <span class="skill-pill">HCL (Terraform)</span>
-        <span class="skill-pill">JSON / REST APIs</span>
         <span class="skill-pill">Bicep</span>
+        <span class="skill-pill">JSON / REST APIs</span>
+        <span class="skill-pill">Node.js</span>
+        <span class="skill-pill">GraphQL</span>
         <span class="skill-pill">Markdown</span>
       </div>
     </div>
+
+    <div class="skill-cat reveal">
+      <div class="skill-cat-icon">&#128640;</div>
+      <h4>Azure AI &amp; Machine Learning</h4>
+      <div class="skill-items">
+        <span class="skill-pill hot">Azure AI Fundamentals (AI-900)</span>
+        <span class="skill-pill hot">Azure ML Studio</span>
+        <span class="skill-pill">Azure OpenAI Service</span>
+        <span class="skill-pill">Custom Vision</span>
+        <span class="skill-pill">Azure Cognitive Services</span>
+        <span class="skill-pill">Generative AI</span>
+        <span class="skill-pill">Responsible AI</span>
+        <span class="skill-pill">MLOps</span>
+        <span class="skill-pill">scikit-learn</span>
+        <span class="skill-pill">Jupyter Notebooks</span>
+        <span class="skill-pill">Prompt Engineering</span>
+        <span class="skill-pill">Computer Vision</span>
+      </div>
+    </div>
+
     <div class="skill-cat reveal">
       <div class="skill-cat-icon">&#128203;</div>
       <h4>BA / BSA &amp; Process</h4>
       <div class="skill-items">
         <span class="skill-pill hot">Business Analysis</span>
-        <span class="skill-pill">Requirements Gathering</span>
-        <span class="skill-pill">SDLC</span>
         <span class="skill-pill hot">Agile / Scrum</span>
-        <span class="skill-pill">JIRA</span>
-        <span class="skill-pill">Confluence</span>
-        <span class="skill-pill">Stakeholder Management</span>
-        <span class="skill-pill">User Stories</span>
+        <span class="skill-pill">Waterfall &amp; Hybrid SDLC</span>
+        <span class="skill-pill">Requirements Gathering</span>
+        <span class="skill-pill">User Stories &amp; Epics</span>
         <span class="skill-pill">Gap Analysis</span>
         <span class="skill-pill">Process Mapping</span>
-        <span class="skill-pill">Azure Test Plans</span>
+        <span class="skill-pill">RACI Matrix</span>
+        <span class="skill-pill">Stakeholder Management</span>
+        <span class="skill-pill">PowerApps</span>
+        <span class="skill-pill">Power Automate</span>
+        <span class="skill-pill">SharePoint</span>
+        <span class="skill-pill">UAT &amp; SIT</span>
+        <span class="skill-pill">JIRA / Confluence</span>
+        <span class="skill-pill">Azure Boards Workflows</span>
       </div>
     </div>
-    <div class="skill-cat reveal">
-      <div class="skill-cat-icon">&#128640;</div>
-      <h4>AI &amp; Emerging Tech</h4>
-      <div class="skill-items">
-        <span class="skill-pill hot">Azure AI Fundamentals</span>
-        <span class="skill-pill">Azure ML</span>
-        <span class="skill-pill">Generative AI</span>
-        <span class="skill-pill">Custom Vision</span>
-        <span class="skill-pill">Azure Cognitive Services</span>
-        <span class="skill-pill">Responsible AI</span>
-        <span class="skill-pill">Prompt Engineering</span>
-      </div>
-    </div>
+
     <div class="skill-cat reveal">
       <div class="skill-cat-icon">&#128736;</div>
-      <h4>Tools &amp; Platforms</h4>
+      <h4>Version Control &amp; Tools</h4>
       <div class="skill-items">
-        <span class="skill-pill">Git</span>
-        <span class="skill-pill">VS Code</span>
-        <span class="skill-pill">Postman</span>
-        <span class="skill-pill">ServiceNow</span>
-        <span class="skill-pill">Azure DevOps Extensions</span>
+        <span class="skill-pill hot">Git</span>
+        <span class="skill-pill">Branching Strategies</span>
+        <span class="skill-pill">Pull Requests &amp; Code Review</span>
+        <span class="skill-pill">Cherry-pick &amp; Rebase</span>
+        <span class="skill-pill">Merge Strategies</span>
         <span class="skill-pill">Prometheus</span>
         <span class="skill-pill">Grafana</span>
-        <span class="skill-pill">Application Insights</span>
-        <span class="skill-pill">Linux</span>
+        <span class="skill-pill">Postman</span>
+        <span class="skill-pill">VS Code</span>
+        <span class="skill-pill">ServiceNow</span>
+        <span class="skill-pill">Azure DevOps Extensions</span>
+        <span class="skill-pill">GitHub Marketplace</span>
+        <span class="skill-pill">Slack / Teams Webhooks</span>
       </div>
     </div>
+
   </div>
 </section>
 
