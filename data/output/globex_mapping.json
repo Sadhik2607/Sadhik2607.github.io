@@ -1,0 +1,39 @@
+{
+  "client": "globex",
+  "target_schema": "crm_contacts",
+  "date_input_format": "%Y-%m-%d",
+  "rules": [
+    {
+      "target": "email",
+      "source": "primary_contact",
+      "transform": "lowercase_trim",
+      "via": "client_override"
+    },
+    {
+      "target": "first_name",
+      "source": "full_name",
+      "transform": "split_first",
+      "via": "common_patterns:full_name"
+    },
+    {
+      "target": "last_name",
+      "source": "full_name",
+      "transform": "split_last",
+      "via": "common_patterns:full_name"
+    },
+    {
+      "target": "join_date",
+      "source": "signup_date",
+      "transform": "normalize_date",
+      "via": "common_patterns:join_date"
+    }
+  ],
+  "unmapped_source_columns": [],
+  "unmapped_target_fields": [],
+  "ai_suggestions": [],
+  "reuse_stats": {
+    "target_fields_total": 4,
+    "target_fields_from_shared_layer": 3,
+    "target_fields_from_client_override": 1
+  }
+}

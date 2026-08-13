@@ -1,0 +1,21 @@
+# Target CRM schema — the single destination every client migration must land in.
+# This is intentionally small and explicit so validation is deterministic.
+schema: crm_contacts
+version: 1
+fields:
+  first_name:
+    type: string
+    required: true
+    max_length: 100
+  last_name:
+    type: string
+    required: true
+    max_length: 100
+  email:
+    type: email
+    required: true
+    unique: true
+  join_date:
+    type: date
+    required: true
+    output_format: "%Y-%m-%d"     # ISO — what the CRM expects on load

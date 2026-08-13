@@ -1,0 +1,15 @@
+# Client: ACME  (example client 1)
+# Source export uses separate First / Last columns and US-style dates.
+# Notice how SHORT this is: it inherits everything from common_patterns and
+# only declares what is genuinely unique to ACME.
+client: acme
+extends: common_patterns
+
+source:
+  # ACME's "Joined" column is M/D/YYYY. The pattern layer knows the column maps
+  # to join_date; the client layer only supplies the date dialect.
+  date_input_format: "%m/%d/%Y"
+
+# Explicit per-client overrides go here. Empty => ACME is fully covered by the
+# shared knowledge layer. This emptiness IS the value: zero bespoke logic.
+mapping: {}

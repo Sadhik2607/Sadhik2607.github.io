@@ -1,0 +1,24 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>MigrateForge — globex</title>
+<style>
+ body{font-family:-apple-system,Segoe UI,Roboto,sans-serif;margin:2rem;color:#1a1a2e;}
+ h1{margin-bottom:0} .sub{color:#666}
+ .cards{display:flex;gap:1rem;margin:1.5rem 0}
+ .card{flex:1;padding:1rem;border-radius:10px;background:#f5f6fa;text-align:center}
+ .card .n{font-size:2rem;font-weight:700} .ok{color:#0a7d33} .bad{color:#c0392b}
+ table{border-collapse:collapse;width:100%;margin:1rem 0}
+ th,td{border:1px solid #ddd;padding:.5rem;text-align:left;font-size:.92rem}
+ th{background:#1a1a2e;color:#fff} code{background:#eee;padding:1px 5px;border-radius:4px}
+</style></head><body>
+<h1>MigrateForge migration report</h1>
+<div class="sub">Client: <strong>globex</strong> &middot; target schema: crm_contacts</div>
+<div class="cards">
+ <div class="card"><div class="n">7</div>records processed</div>
+ <div class="card"><div class="n ok">4</div>valid &amp; loadable</div>
+ <div class="card"><div class="n bad">3</div>flagged</div>
+</div>
+<h2>Column mapping</h2>
+<table><tr><th>Source column</th><th>Target field</th><th>Transform</th><th>Resolved via</th></tr><tr><td>primary_contact</td><td>email</td><td><code>lowercase_trim</code></td><td>client_override</td></tr><tr><td>full_name</td><td>first_name</td><td><code>split_first</code></td><td>common_patterns:full_name</td></tr><tr><td>full_name</td><td>last_name</td><td><code>split_last</code></td><td>common_patterns:full_name</td></tr><tr><td>signup_date</td><td>join_date</td><td><code>normalize_date</code></td><td>common_patterns:join_date</td></tr></table>
+<h2>Flagged records &amp; reasons</h2>
+<table><tr><th>Row</th><th>Reasons</th></tr><tr><td>3</td><td>last_name: required field is missing</td></tr><tr><td>5</td><td>email: 'invalid_email_here' is not a valid email</td></tr><tr><td>6</td><td>join_date: required field is missing</td></tr></table>
+</body></html>

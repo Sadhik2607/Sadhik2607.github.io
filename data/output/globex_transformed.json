@@ -1,0 +1,48 @@
+{
+  "client": "globex",
+  "target_schema": "crm_contacts",
+  "records": [
+    {
+      "email": "barbara.liskov@example.com",
+      "first_name": "Barbara",
+      "last_name": "Liskov",
+      "join_date": "2020-04-15"
+    },
+    {
+      "email": "donald.knuth@example.com",
+      "first_name": "Donald",
+      "last_name": "Knuth",
+      "join_date": "2015-11-02"
+    },
+    {
+      "email": "radia.perlman@example.com",
+      "first_name": "Radia",
+      "last_name": "Perlman",
+      "join_date": "2018-07-30"
+    },
+    {
+      "email": "cher@example.com",
+      "first_name": "Cher",
+      "last_name": null,
+      "join_date": "2019-01-01"
+    },
+    {
+      "email": "tim.berners-lee@example.com",
+      "first_name": "Tim Berners",
+      "last_name": "Lee",
+      "join_date": "2016-05-20"
+    },
+    {
+      "email": "invalid_email_here",
+      "first_name": "Vint",
+      "last_name": "Cerf",
+      "join_date": "2014-03-11"
+    },
+    {
+      "email": "shafi.goldwasser@example.com",
+      "first_name": "Shafi",
+      "last_name": "Goldwasser",
+      "join_date": null
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>MigrateForge — acme</title>
+<style>
+ body{font-family:-apple-system,Segoe UI,Roboto,sans-serif;margin:2rem;color:#1a1a2e;}
+ h1{margin-bottom:0} .sub{color:#666}
+ .cards{display:flex;gap:1rem;margin:1.5rem 0}
+ .card{flex:1;padding:1rem;border-radius:10px;background:#f5f6fa;text-align:center}
+ .card .n{font-size:2rem;font-weight:700} .ok{color:#0a7d33} .bad{color:#c0392b}
+ table{border-collapse:collapse;width:100%;margin:1rem 0}
+ th,td{border:1px solid #ddd;padding:.5rem;text-align:left;font-size:.92rem}
+ th{background:#1a1a2e;color:#fff} code{background:#eee;padding:1px 5px;border-radius:4px}
+</style></head><body>
+<h1>MigrateForge migration report</h1>
+<div class="sub">Client: <strong>acme</strong> &middot; target schema: crm_contacts</div>
+<div class="cards">
+ <div class="card"><div class="n">8</div>records processed</div>
+ <div class="card"><div class="n ok">5</div>valid &amp; loadable</div>
+ <div class="card"><div class="n bad">3</div>flagged</div>
+</div>
+<h2>Column mapping</h2>
+<table><tr><th>Source column</th><th>Target field</th><th>Transform</th><th>Resolved via</th></tr><tr><td>First</td><td>first_name</td><td><code>trim</code></td><td>common_patterns:first_name</td></tr><tr><td>Last</td><td>last_name</td><td><code>trim</code></td><td>common_patterns:last_name</td></tr><tr><td>E-mail</td><td>email</td><td><code>lowercase_trim</code></td><td>common_patterns:email</td></tr><tr><td>Joined</td><td>join_date</td><td><code>normalize_date</code></td><td>common_patterns:join_date</td></tr></table>
+<h2>Flagged records &amp; reasons</h2>
+<table><tr><th>Row</th><th>Reasons</th></tr><tr><td>4</td><td>email: duplicate value 'ada.lovelace@example.com'</td></tr><tr><td>5</td><td>email: 'not-an-email' is not a valid email</td></tr><tr><td>6</td><td>email: required field is missing</td></tr></table>
+</body></html>

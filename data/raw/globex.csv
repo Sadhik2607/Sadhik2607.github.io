@@ -1,0 +1,9 @@
+full_name,primary_contact,signup_date
+Barbara Liskov,BARBARA.LISKOV@example.com,2020-04-15
+Donald Knuth,donald.knuth@example.com ,2015-11-02
+Radia Perlman,radia.perlman@example.com,2018-07-30
+Cher,cher@example.com,2019-01-01
+Tim Berners Lee,tim.berners-lee@example.com,2016-05-20
+Donald Knuth,donald.knuth@example.com,2015-11-02
+Vint Cerf,invalid_email_here,2014-03-11
+Shafi Goldwasser,shafi.goldwasser@example.com,not-a-date
